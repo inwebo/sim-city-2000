@@ -1,5 +1,5 @@
 {
-  "name": "@inwebo/sprite.js",
+  "name": "@inwebo/city",
   "version": "0.0.7",
   "description": "Sprite management for javascript",
   "main": "/src/index.js",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@inwebo/assetsloader.js": "^0.0",
-    "@inwebo/render.js": "^0.0",
+    "@inwebo/render.js": "0.0.8",
     "@inwebo/sprite.js": "^0.0",
     "@inwebo/vector": "^0.0",
     "lodash": "^4.17.15"
