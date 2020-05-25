@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166786698-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-166786698-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Sprite.js the most simple way to manipulate sprite with Javascript</title>
+    <!-- Fonts and CSS Reset -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+    <!-- PrismJS: Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/themes/prism.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css">
+
+    <!-- Mustard UI -->
+    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+
+    <!-- Overriding UI -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta name="description" content="Sprite.js Use sprite sheet, sprite, animated sprite and transparency colors with ease."/>
+    <link rel="canonical" href="index.html" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sprite.js a simple sprite javascript made with ♥." />
+    <meta property="og:description" content="Smart javascript Canvas API use." />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Sprite.js" />
+<!--    <meta property="og:image" content="wp-content/uploads/2018/04/mustard-ui-image.png" />-->
+<!--    <meta property="og:image:secure_url" content="wp-content/uploads/2018/04/mustard-ui-image.png" />-->
+<!--    <meta property="og:image:width" content="600" />-->
+<!--    <meta property="og:image:height" content="315" />-->
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Sprite.js Use sprite sheet, sprite, animated sprite and transparency colors with ease." />
+    <meta name="twitter:title" content="Sprite.js a simple sprite javascript made with ♥." />
+    <meta name="twitter:site" content="@inwebo/sprite.js" />
+<!--    <meta name="twitter:image" content="wp-content/uploads/2018/04/mustard-ui-image.png" />-->
+    <meta name="twitter:creator" content="@inwebo/sprite.js" />
+
+</head>
+<body>
+<header>
+    <canvas id="mario-sheet" style="border: black solid 10px; display: none" width="50" height="32"></canvas>
+    <h1 class="title">Sprite.js <canvas id="mario-walking" width="16" height="32"></canvas></h1>
+    <h2 class="subtitle">Use sprite sheet, sprite, animated sprite and transparency colors with ease.</h2>
+    <p class="disclaimer">
+        <img title="Discover Sprite.js activity on github by Inwebo veritas" alt="Sprite.js activity by Inwebo veritas" src="https://img.shields.io/github/commit-activity/w/inwebo/sprite.js">
+        <img title="Discover Sprite.js repository on github by Inwebo veritas" alt="Sprite.js repository size by Inwebo veritas" src="https://img.shields.io/github/repo-size/inwebo/Sprite.js?logo=Sprite.js">
+        <img title="Sprite.js version on github" alt="Sprite.js version size by Inwebo veritas"
+             src="https://img.shields.io/github/package-json/v/inwebo/Sprite.js?logo=Sprite.js">
+        <img title="Sprite.js version last commit by Inwebo veritas on github" alt="Sprite.js last activity by Inwebo veritas" src="https://img.shields.io/github/last-commit/inwebo/sprite.js">
+    </p>
+<!--    <button class="get-started button button-primary button-large">Let's rock</button>-->
+
+    <a class="scroll-down" href="#content" title="Discover Sprite.js on github by Inwebo veritas"></a>
+</header>
+
+<main id="content">
+    <section>
+        <ul class="breadcrumbs">
+            <li><a title="Inwebo veritas" href="https://github.com/inwebo">Inwebo</a></li>
+            <li><a title="Inwebo veritas Sprites.js" href="https://github.com/inwebo/Sprite.js">Sprite.js</a></li>
+            <li>Documentation</li>
+        </ul>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-3">
+                <div class="sidebar sidebar-left">
+                    <h3 class="sidebar-category"><a title="How to use Sprite.js" href="#quick-start">Quick start</a></h3>
+                </div>
+            </div>
+            <div class="col col-lg-9">
+                <section id="quick-start">
+                    <canvas id="world" width="840px" height="464px"></canvas>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-5">
+                <div class="footer-text">
+                    <h5 class="h3">Inwebo veritas</h5>
+                    <p>This is an example of the footer component. You don't have to use this layout, but it's a good
+                        example of what you can do with what's provided. If you wanted to included more columns for
+                        links and remove this text block, you can.</p>
+                </div>
+            </div>
+            <div class="col col-sm-6 col-lg-3 col-lg-offset-1">
+                <h5 class="footer-links-category">Discover my javascript projects</h5>
+                <ul class="footer-links">
+                    <li><a title="Simple way to draw on canvas with Render.js" href="https://github.com/inwebo/Render.js">Render.js</a></li>
+                    <li><a title="Javascript vector implementation" href="https://github.com/inwebo/Vector">Vector</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--@todo-->
+<!--    <p class="copyright align-center">Made by <img src="logo-ico.png" width="16" height="16" alt="Inwebo veritas" title="Inwebo veritas logo"> (Inwebo Veritas).</p>-->
+
+</footer>
+<script type="application/javascript" src="assets/js/demo.min.js"></script>
+</body>
+</html>

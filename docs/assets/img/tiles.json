@@ -1,0 +1,14 @@
+{
+  "frames": {
+    "tiles-1": {
+      "origin": [0, 0],
+      "dimensions": [32, 17],
+      "transparency": null
+    },
+    "tiles-2": {
+      "origin": [32, 0],
+      "dimensions": [32, 18],
+      "transparency": null
+    }
+  }
+}
