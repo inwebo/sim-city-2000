@@ -28,27 +28,20 @@ export default class ArrayHelper {
         return new Vector2D(x, y);
     }
 
+    /**
+     * @see https://stackoverflow.com/questions/35917734/how-do-i-traverse-an-array-diagonally-in-javascript
+     * @param {Array} array
+     * @return {[]}
+     */
     static diagonal(array) {
-        // var Ylength = array.length;
-        var Ylength = 3;
-        // var Xlength = array[0].length;
-        var Xlength = 3;
-        var maxLength = Math.max(Xlength, Ylength);
-
         const length = Math.sqrt(array.length);
-
-        // console.log(maxLength);
-
         const buffer = [];
 
-
-
-        for (let k = 0; k <= 2 * (maxLength - 1); ++k) {
-            for (let y = Ylength - 1; y >= 0; --y) {
+        for (let k = 0; k <= 2 * (length - 1); ++k) {
+            for (let y = length - 1; y >= 0; --y) {
                 const x = k - y;
-                if (x >= 0 && x < Xlength) {
+                if (x >= 0 && x < length) {
                     const index = ArrayHelper.vectorToIndex(new Vector2D(3), new Vector2D(x,y));
-
                     buffer.push(array[index]);
                 }
             }
