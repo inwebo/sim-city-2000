@@ -3,6 +3,7 @@ import RenderTerrain from "../../../src/Renderer/RenderTerrain";
 import {RenderOffScreen} from "@inwebo/render.js";
 import CoordinatesHelper from "../../../src/Helpers/CoordinatesHelper";
 import AssetLoader from "../../../src/Helpers/AssetLoader";
+import ArrayHelper from '../../../src/Helpers/ArrayHelper'
 
 // Sheet src
 
@@ -134,4 +135,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     };
 
     commercialsImg.src = commercialsSrc;
+
+    const cells = ['00','01','02','10','11','12', '20', '21','22'];
+
+    console.log(ArrayHelper.diagonal(cells));
 });
