@@ -8,7 +8,6 @@ export default class RenderSheet extends Renderer2D {
         /**
          * @type {Image}
          */
-        const s = subject[0][0];
-        this.getCtx().drawImage(s, 0, 0);
+        this.getCtx().drawImage(subject[0], 0, 0);
     }
 }
