@@ -27,4 +27,33 @@ export default class ArrayHelper {
 
         return new Vector2D(x, y);
     }
+
+    static diagonal(array) {
+        // var Ylength = array.length;
+        var Ylength = 3;
+        // var Xlength = array[0].length;
+        var Xlength = 3;
+        var maxLength = Math.max(Xlength, Ylength);
+
+        const length = Math.sqrt(array.length);
+
+        // console.log(maxLength);
+
+        const buffer = [];
+
+
+
+        for (let k = 0; k <= 2 * (maxLength - 1); ++k) {
+            for (let y = Ylength - 1; y >= 0; --y) {
+                const x = k - y;
+                if (x >= 0 && x < Xlength) {
+                    const index = ArrayHelper.vectorToIndex(new Vector2D(3), new Vector2D(x,y));
+
+                    buffer.push(array[index]);
+                }
+            }
+        }
+
+        return buffer;
+    }
 }
