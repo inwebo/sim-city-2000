@@ -2,6 +2,7 @@ import {  SpriteMap } from '@inwebo/sprite.js' ;
 import RenderTerrain from "../../../src/Renderer/RenderTerrain";
 import {RenderOffScreen} from "@inwebo/render.js";
 import CoordinatesHelper from "../../../src/Helpers/CoordinatesHelper";
+import AssetLoader from "../../../src/Helpers/AssetLoader";
 
 // Sheet src
 
@@ -11,6 +12,38 @@ import CoordinatesHelper from "../../../src/Helpers/CoordinatesHelper";
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
+
+    const imgTiles = AssetLoader.image('assets/img/tiles.png')
+        .then((img) => {
+            // console.log(img);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    ;
+
+    const commercialsTiles = AssetLoader.image('assets/img/commercials.png')
+        .then((img) => {
+            // console.log(img);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    ;
+
+    const p1 = AssetLoader.image('assets/img/tiles.png');
+    const p2 = AssetLoader.image('assets/img/commercials.png');
+    const p3 = AssetLoader.json("assets/img/tiles.json");
+
+
+    const init = Promise.all([p1, p2, p3])
+        .then((values) => {
+            console.log(values);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    ;
 
     const worldCanvas = document.getElementById('world');
 
