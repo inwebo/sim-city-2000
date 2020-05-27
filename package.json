@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@inwebo/assetsloader.js": "^0.0",
-    "@inwebo/render.js": "0.0.8",
+    "@inwebo/render.js": "^0.0",
     "@inwebo/sprite.js": "^0.0",
     "@inwebo/vector": "^0.0",
     "lodash": "^4.17.15"

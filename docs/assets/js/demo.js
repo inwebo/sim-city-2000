@@ -18,11 +18,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const commercialsJSONMap = AssetsLoader.json('assets/img/commercials.json');
 
     Promise.all([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap])
-        .then((values) => {
-            const tilesSheet         = values[0];
-            const tilesJSONMap       = values[1];
-            const commercialsSheet   = values[2];
-            const commercialsJSONMap = values[3];
+        .then(([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap]) => {
 
             const tilesOffScreenRender       = new RenderOffScreen(worldCanvas, tilesSheet);
             const tilesSpriteMap             = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
