@@ -3,6 +3,11 @@ import {Sprite} from "@inwebo/sprite.js";
 
 export default class Cell {
 
-    constructor() {
+    /**
+     * @param {number} index
+     * @param {Vector2D} vector
+     */
+    constructor(index, vector = null) {
+        this.position = vector || new Vector2D();
     }
 }
