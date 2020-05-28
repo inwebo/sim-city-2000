@@ -35,19 +35,19 @@ export default class RenderChunk extends Renderer2D {
 
                 const ctx = document.getElementById('world').getContext('2d');
 
-                ctx.drawImage(img, 32, 0) // impaire
-
-                ctx.drawImage(img, 16, 8) // paire
-                ctx.drawImage(img, 48, 8) // paire
-
-                ctx.drawImage(img, 0, 16)  // impaire
-                ctx.drawImage(img, 32, 16) // impaire
-                ctx.drawImage(img, 64, 16) // impaire
-
-                ctx.drawImage(img, 16, 24) // paire
-                ctx.drawImage(img, 48, 24) // paire
-
-                ctx.drawImage(img, 32, 32) // impaire
+                // ctx.drawImage(img, 32, 0) // impaire
+                //
+                // ctx.drawImage(img, 16, 8) // paire
+                // ctx.drawImage(img, 48, 8) // paire
+                //
+                // ctx.drawImage(img, 0, 16)  // impaire
+                // ctx.drawImage(img, 32, 16) // impaire
+                // ctx.drawImage(img, 64, 16) // impaire
+                //
+                // ctx.drawImage(img, 16, 24) // paire
+                // ctx.drawImage(img, 48, 24) // paire
+                //
+                // ctx.drawImage(img, 32, 32) // impaire
 
                 const tile_width  = img.width;
                 const tile_height = img.height;
@@ -56,38 +56,43 @@ export default class RenderChunk extends Renderer2D {
                 let additive = true;
                 let position = new Vector2D(tile_width, 0);
                 let currentSize = 1;
-                const cells = 16;
+                const cells = 9;
                 const max   = Math.sqrt(cells);
-                const loop  = max + (max/2) -1;
+                const loop  = max + (max-1);
 
                 for(let i = 1; i <= loop; i++) {
+
                   if(i === max) {
                     additive = false;
                   }
-
+                    // console.log(additive);
                   // ctx.drawImage(img,position.getX(), position.getY());
 
+                    // console.log(position);
+
+                  let tempPosition = position.clone();
+
+
                   for(let k=1; k<=currentSize; k++) {
-                    if(i%2 === 0) {
-                      // K tiles avec offset -
-
-                    } else {
-                      // K tiles avec offset +
-
-                      let posX = k * offset_Y;
-
-                      console.log(posX);
-
-                      // console.log(startPositionY);
-                    }
+                      ctx.drawImage(img,tempPosition.getX(), tempPosition.getY());
+                      tempPosition.addX(tile_width);
                   }
 
-                  if(i > 1) {
-                    position.addY(offset_Y);
+                  if(i <= max && position.getX()>0 && additive) {
+                      position.substractScalarX(tile_width/2);
+                  } else {
+                      position.addX(16);
                   }
+
+
+                  // Row Y
+                  position.addY(offset_Y);
+
 
                   if(additive) {
-                    currentSize +=1;
+                      if(currentSize < max) {
+                          currentSize +=1;
+                      }
                   } else {
                     currentSize -=1;
                   }
