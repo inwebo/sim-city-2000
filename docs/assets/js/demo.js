@@ -17,8 +17,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const commercialsSheet   = AssetsLoader.image('assets/img/commercials.png');
     const commercialsJSONMap = AssetsLoader.json('assets/img/commercials.json');
 
-    Promise.all([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap])
-        .then(([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap]) => {
+    const infraSheet   = AssetsLoader.image('assets/img/infrastructures.png');
+    const infraJSONMap = AssetsLoader.json('assets/img/infrastructures.json');
+
+    Promise.all([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap, infraSheet, infraJSONMap])
+        .then(([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap, infraSheet, infraJSONMap]) => {
 
             const tilesOffScreenRender       = new RenderOffScreen(worldCanvas, tilesSheet);
             const tilesSpriteMap             = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
@@ -26,11 +29,27 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsOffScreenRender = new RenderOffScreen(worldCanvas, commercialsSheet);
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
 
-            const chunk = new Chunk(new Vector2D(1, 1));
+          const infraOffScreenRender = new RenderOffScreen(worldCanvas, infraSheet);
 
+          const infraSpriteMap = new SpriteMap(infraJSONMap, infraOffScreenRender.getCtx());
+
+          // console.log(infraJSONMap.get('road-1'))
+
+
+            const chunk = new Chunk(new Vector2D(1, 1));
             const renderChunk = new RenderChunk(worldCanvas);
 
             renderChunk.draw(chunk, tilesSpriteMap);
+
+
+
+          createImageBitmap(infraSpriteMap.get('road-1').imgData)
+            .then((img) => {
+              worldCanvas.getContext('2d')
+              .drawImage(img,176,64);
+              worldCanvas.getContext('2d')
+              .drawImage(img,288,32);
+            })
         })
         .catch((err) => {
             console.log(err);
