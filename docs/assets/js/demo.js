@@ -37,36 +37,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         })
     ;
 
-    //
-    //
-    // const tilesSrc = 'assets/img/tiles.png';
-    // const tilesImg = new Image();
-    // tilesImg.onload = (e) => {
-    //     const offScreenRender = new RenderOffScreen(worldCanvas, tilesImg);
-    //
-    //     fetch("assets/img/tiles.json")
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-    //         .then((json) => {
-    //             try {
-    //                 const spriteMap = new SpriteMap(json, offScreenRender.getCtx());
-    //
-    //                 // createImageBitmap(spriteMap.get('tiles-1').imgData)
-    //                 //     .then(img => worldCanvas.getContext('2d').drawImage(img,0,0));
-    //
-    //                 //
-    //                 // const terrain = new RenderTerrain(worldCanvas);
-    //                 //
-    //                 // terrain.draw(spriteMap.get('tiles-1'), spriteMap.get('tiles-2'));
-    //
-    //             } catch (e) {
-    //                 console.log(e);
-    //             }
-    //         });
-    // };
-
-    //
     // tilesImg.src = tilesSrc;
     //
     //
@@ -115,20 +85,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     //                             .then(img => worldCanvas.getContext('2d')
     //                                 .drawImage(img,c2.getX(),c2.getY()))
     //                         ;
-    //
     //                     }
     //                 }
-    //
     //
     //             } catch (e) {
     //                 console.log(e);
     //             }
     //         });
     // };
-    //
-    // commercialsImg.src = commercialsSrc;
-    //
-    // const cells = ['00','01','02','10','11','12', '20', '21','22'];
-    //
-    // console.log(ArrayHelper.diagonal(cells));
 });
