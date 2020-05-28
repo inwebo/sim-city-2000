@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
                 });
 
-            const chunk       = new Chunk(new Vector2D(10,10))
+            const chunk       = new Chunk(new Vector2D(4,4))
             const chunkRender = new RenderChunk(worldCanvas);
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
