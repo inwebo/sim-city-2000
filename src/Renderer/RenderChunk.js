@@ -9,72 +9,44 @@ export default class RenderChunk extends Renderer2D {
         this._bufferImg = null;
     }
 
-
-
-  /**
-   * @return {boolean}
-   */
-  hasBufferImg() {
-      return this._bufferImg !== null;
+    /**
+     * @param {number} width
+     */
+    getOffsetX(width) {
+        return width / 2;
     }
 
-    test() {
-      return 3;
+    /**
+     * @param {number} height
+     */
+    getOffsetY(height) {
+       return  (height - 1) / 2;
     }
 
-    _draw(subject) {
-        const chunk  = subject[0];
-        const sprite = subject[1].get('tiles-1');
-
+    _draw([chunk, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((img) => {
 
-                const ctx = document.getElementById('world').getContext('2d');
+                const rowWidth  = img.width * chunk.getDimensions().getX();
+                const rowHeight = this.getOffsetY(img.height);
 
-                const tile_width  = img.width;
-                const tile_height = img.height;
-                const offset_X = tile_width / 2;
-                const offset_Y = (tile_height - 1)/2;
-                let additive = true;
+                const rowRender = new OffscreenCanvas(rowWidth, rowHeight);
 
-                let currentSize = 1;
-                const cells = 400;
-                const max   = Math.floor(Math.sqrt(cells));
-                const loop  = max + (max-1);
 
-              let position = new Vector2D(304, 0);
-                let j = 0;
-                for(let i = 1; i <= loop; i++) {
+                for (let y = 0; y < chunk.getDimensions().getY(); y++) {
+                    this._canvas.getContext('bitmaprenderer').transferFromImageBitmap(this.getOffScreenImageBitmap());
+                    // rowRender.getContext('2d').putImageData(img, y * img.width, 0);
+                }
 
-                  if(i === max) {
-                    additive = false;
-                  }
 
-                  let tempPosition = position.clone();
+                for (let y = 0; y < chunk.getDimensions().getY(); y++) {
+                    const offsetX = (y % 2 !== 0) ? this.getOffsetX(img.width) : 0;
+                    const offsetY = (y % 2 !== 0) ? this.getOffsetY(img.height) : 0;
 
-                  for(let k=1; k<=currentSize; k++) {
 
-                      ctx.drawImage(img,tempPosition.getX(), tempPosition.getY());
-                      tempPosition.addX(tile_width);
-
-                  }
-
-                  if(i <= max && additive) {
-                      position.substractScalarX(offset_X);
-                  } else {
-                      position.addX(16);
-                  }
-
-                  position.addY(offset_Y);
-
-                  if(additive) {
-                      if(currentSize < max) {
-                          currentSize +=1;
-                      }
-                  } else {
-                    currentSize -=1;
-                  }
-
+                    for (let x = 0; x < chunk.getDimensions().getX(); x++) {
+                        this.getCtx().drawImage(img, x * img.width + offsetX, y * (img.height - 1) - offsetY);
+                    }
                 }
             });
     }

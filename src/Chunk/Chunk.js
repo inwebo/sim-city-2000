@@ -11,56 +11,35 @@ export default class Chunk {
     }
 
     /**
-     * @return {Cell[]}
+     * @param {Vector2D} dimensions
+     * @param {Vector2D|null} origin
      */
-    getCells() {
-        return this._cells;
+    constructor(dimensions, origin = null) {
+        this._dimensions = dimensions;
+        this._origin     = origin || new Vector2D();
+        this._grid       = this._populate();
     }
 
-    /**
-     *
-     * @see https://softwareengineering.stackexchange.com/questions/212808/treating-a-1d-data-structure-as-2d-grid
-     * @param x
-     * @param y
-     * @return {any}
-     */
-    getCellByCoordinate(x, y) {
-        const index = x + this.getDimensions().getX() * y;
-
-        if(index > this._cells.length - 1) {
-            throw `Out of bound exception this._cells.length = ${this._cells.length}, getter index ${index} > [0, ${this._cells.length -1}]`;
+    _populate() {
+        const rows = new Array(this.getDimensions().getY()).fill(null);
+        Object.seal(rows);
+        for(let i = 0; i < rows.length; i++) {
+            let cols = [];
+            for(let j = 0; j < this.getDimensions().getX(); j++) {
+                cols.push(new Cell(new Vector2D(j, i)));
+            }
+            Object.seal(cols);
+            rows[i] = cols;
         }
 
-        return this._cells[index];
+        return rows;
     }
 
     /**
-     * @param index
-     * @return {Cell}
+     * @param {number} x
+     * @param {number} y
      */
-    getCellByInde(index) {
-        return this._cells[index];
-    }
-
-    /**
-     * @param {Vector2D} dimensions
-     */
-    constructor(dimensions) {
-        this._dimensions = dimensions;
-
-        const buffer = new Array(this.getDimensions().getX() * this.getDimensions().getY()).fill(null);
-        Object.seal(buffer);
-        this._cells = buffer;
-
-        this._populate();
-    }
-
-    /**
-     * @private
-     */
-    _populate() {
-        this._cells.forEach((cell, index) => {
-            this._cells[index] = new Cell(index);
-        });
+    getCell(x, y) {
+        return this._grid[y][x];
     }
 }
