@@ -1,0 +1,14 @@
+{
+  "frames": {
+    "road-1": {
+      "origin": [8, 24],
+      "dimensions": [32, 17],
+      "transparency": null
+    },
+    "road-2": {
+      "origin": [48, 24],
+      "dimensions": [32, 17],
+      "transparency": null
+    }
+  }
+}
