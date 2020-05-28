@@ -24,13 +24,21 @@ export default class Chunk {
      * @param y
      * @return {any}
      */
-    getCell(x, y) {
+    getCellByCoordinate(x, y) {
         const index = x + this.getDimensions().getX() * y;
 
         if(index > this._cells.length - 1) {
             throw `Out of bound exception this._cells.length = ${this._cells.length}, getter index ${index} > [0, ${this._cells.length -1}]`;
         }
 
+        return this._cells[index];
+    }
+
+    /**
+     * @param index
+     * @return {Cell}
+     */
+    getCellByInde(index) {
         return this._cells[index];
     }
 
@@ -43,6 +51,7 @@ export default class Chunk {
         const buffer = new Array(this.getDimensions().getX() * this.getDimensions().getY()).fill(null);
         Object.seal(buffer);
         this._cells = buffer;
+
         this._populate();
     }
 
