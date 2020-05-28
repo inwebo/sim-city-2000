@@ -6,7 +6,20 @@ export default class RenderChunk extends Renderer2D {
 
     constructor(canvas) {
         super(canvas);
-        this._chunkImg = null;
+        this._bufferImg = null;
+    }
+
+
+
+  /**
+   * @return {boolean}
+   */
+  hasBufferImg() {
+      return this._bufferImg !== null;
+    }
+
+    test() {
+      return 3;
     }
 
     _draw(subject) {
@@ -25,12 +38,12 @@ export default class RenderChunk extends Renderer2D {
                 let additive = true;
 
                 let currentSize = 1;
-                const cells = 16;
+                const cells = 400;
                 const max   = Math.floor(Math.sqrt(cells));
                 const loop  = max + (max-1);
 
-              let position = new Vector2D(max*tile_width, loop*tile_height);
-
+              let position = new Vector2D(304, 0);
+                let j = 0;
                 for(let i = 1; i <= loop; i++) {
 
                   if(i === max) {
@@ -40,8 +53,10 @@ export default class RenderChunk extends Renderer2D {
                   let tempPosition = position.clone();
 
                   for(let k=1; k<=currentSize; k++) {
+
                       ctx.drawImage(img,tempPosition.getX(), tempPosition.getY());
                       tempPosition.addX(tile_width);
+
                   }
 
                   if(i <= max && additive) {
@@ -59,6 +74,7 @@ export default class RenderChunk extends Renderer2D {
                   } else {
                     currentSize -=1;
                   }
+
                 }
             });
     }
