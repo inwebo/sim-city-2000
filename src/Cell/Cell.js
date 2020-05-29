@@ -4,10 +4,18 @@ import {Sprite} from "@inwebo/sprite.js";
 export default class Cell {
 
     /**
-     * @param {Vector2D} vector
+     * @param {Vector2D} origin
      */
-    constructor(vector = null) {
-        this._index = vector || new Vector2D();
+    setOrigin(origin) {
+        this._origin = origin;
+    }
 
+    /**
+     * @param {Vector2D|null} vector
+     * @param {Vector2D|null} index
+     */
+    constructor(vector = null, index = null) {
+        this._index  = vector || new Vector2D();
+        this._origin = index || new Vector2D();
     }
 }
