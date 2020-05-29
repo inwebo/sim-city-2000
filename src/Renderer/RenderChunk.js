@@ -24,6 +24,9 @@ export default class RenderChunk extends Renderer2D {
     }
 
     _draw([chunk, sprite]) {
+
+        const offSetOrigin = chunk.getOrigin().clone();
+
         createImageBitmap(sprite.imgData)
             .then((img) => {
                 for (let y = 0; y < chunk.getDimensions().getY(); y++) {
@@ -36,7 +39,11 @@ export default class RenderChunk extends Renderer2D {
                     }
 
                     for (let x = 0; x < chunk.getDimensions().getX(); x++) {
-                        this.getCtx().drawImage(img, x * img.width + offsetX, y * (img.height - 1) - offsetY);
+                        this.getCtx().drawImage(
+                            img,
+                            (x * img.width + offsetX) + offSetOrigin.getX(),
+                            (y * (img.height - 1) - offsetY) + offSetOrigin.getY()
+                        );
                     }
                 }
             });
