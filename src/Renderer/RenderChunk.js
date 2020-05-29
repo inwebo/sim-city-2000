@@ -35,14 +35,21 @@ export default class RenderChunk extends Renderer2D {
                     let offsetY = 0;
 
                     if(y !== 0) {
+                        //  @todo imgData.height
                         offsetY += 8 * y;
                     }
 
                     for (let x = 0; x < chunk.getDimensions().getX(); x++) {
+                        // canvas relative
+                        const originX = (x * img.width + offsetX) + offSetOrigin.getX();
+                        const originY = (y * (img.height - 1) - offsetY) + offSetOrigin.getY();
+
+                        chunk.getCell(x, y).setOrigin(new Vector2D(originX, originY));
+
                         this.getCtx().drawImage(
                             img,
-                            (x * img.width + offsetX) + offSetOrigin.getX(),
-                            (y * (img.height - 1) - offsetY) + offSetOrigin.getY()
+                            originX,
+                            originY
                         );
                     }
                 }
