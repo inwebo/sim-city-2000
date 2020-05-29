@@ -25,29 +25,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
             const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
             const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
+
             const infraOffScreenRender = new RenderOffScreen(worldCanvas, infraSheet);
             const infraSpriteMap       = new SpriteMap(infraJSONMap, infraOffScreenRender.getCtx());
 
-            createImageBitmap(infraSpriteMap.get('road-1').imgData)
-                .then((img) => {
-                    worldCanvas.getContext('2d')
-                        .drawImage(img, 176, 64);
+            const chunk                = new Chunk(new Vector2D(100,100), new Vector2D(-32,-32));
+            const chunkRender          = new RenderChunk(worldCanvas);
 
-                });
-
-            const chunk       = new Chunk(new Vector2D(100,100), new Vector2D(0,0));
-            const chunkRender = new RenderChunk(worldCanvas);
+            const cells = chunk.getAdjacents(8,8, 1);
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
-
-            createImageBitmap(infraSpriteMap.get('road-1').imgData)
-                .then((img) => {
-                    const ctx = worldCanvas.getContext('2d');
-
-                    ctx.drawImage(img, 160, 65);
-                    ctx.drawImage(img, 176, 57);
-
-                });
         })
         .catch((err) => {
             console.log(err);
