@@ -3,8 +3,6 @@ import {RenderOffScreen} from '@inwebo/render.js';
 import {AssetsLoader}    from '@inwebo/assetsloader.js'
 import {Vector2D}        from '@inwebo/vector';
 
-import CoordinatesHelper from "../../../src/Helpers/CoordinatesHelper";
-import ArrayHelper       from '../../../src/Helpers/ArrayHelper'
 import Chunk from "../../../src/Chunk/Chunk";
 import RenderChunk from "../../../src/Renderer/RenderChunk";
 
