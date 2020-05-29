@@ -58,24 +58,24 @@ export default class Chunk {
      */
     getAdjacents(x, y, size = 1, including = false) {
         const dimension = (size * 2 + 1 );
-        const origin    = new Vector2D(x - size, y - size);
+        const startOrigin    = new Vector2D(x - size, y - size);
 
         const buffer = [];
 
         for (let i = 1; i <= dimension; i++) {
             for (let j = 1; j <= dimension; j++) {
 
-                if((origin.getX() === x && origin.getY() === y) === false) {
-                    buffer.push(this.getCell(origin.getX(), origin.getY()));
+                if((startOrigin.getX() === x && startOrigin.getY() === y) === false) {
+                    buffer.push(this.getCell(startOrigin.getX(), startOrigin.getY()));
                 }
 
-                if(origin.getY() >= y + size) {
-                    origin.setY(y-size);
+                if(startOrigin.getY() >= y + size) {
+                    startOrigin.setY(y-size);
                 } else {
-                    origin.addY(1);
+                    startOrigin.addY(1);
                 }
             }
-            origin.addX(1);
+            startOrigin.addX(1);
         }
 
         return buffer;
