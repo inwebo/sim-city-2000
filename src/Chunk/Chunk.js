@@ -42,9 +42,22 @@ export default class Chunk {
     /**
      * @param {number} x
      * @param {number} y
-     * @param {boolean} relative
+     *
+     * @todo clamp vector
      */
-    getCell(x, y, relative = true) {
+    getCell(x, y) {
         return this._grid[y][x];
+    }
+
+    /**
+     * @param {number} x
+     * @param {number} y
+     * @param {number} size
+     * @return {Cell[]}
+     */
+    getAdjacents(x, y, size = 1) {
+        const loop = Math.pow((size * 2 + 1 ), 2) - 1;
+        console.log(loop);
+        return [];
     }
 }
