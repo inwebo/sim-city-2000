@@ -24,9 +24,6 @@ export default class RenderChunk extends Renderer2D {
     }
 
     _draw([chunk, sprite]) {
-
-        const offSetOrigin = chunk.getOrigin().clone();
-
         createImageBitmap(sprite.imgData)
             .then((img) => {
                 for (let y = 0; y < chunk.getDimensions().getY(); y++) {
@@ -35,14 +32,14 @@ export default class RenderChunk extends Renderer2D {
                     let offsetY = 0;
 
                     if(y !== 0) {
-                        //  @todo imgData.height
+                        // this.getOffsetY(img.height);
                         offsetY += 8 * y;
                     }
 
                     for (let x = 0; x < chunk.getDimensions().getX(); x++) {
                         // canvas relative
-                        const originX = (x * img.width + offsetX) + offSetOrigin.getX();
-                        const originY = (y * (img.height - 1) - offsetY) + offSetOrigin.getY();
+                        const originX = (x * img.width + offsetX) + chunk.getOrigin().getX();
+                        const originY = (y * (img.height - 1) - offsetY) + chunk.getOrigin().getY();
 
                         chunk.getCell(x, y).setOrigin(new Vector2D(originX, originY));
 

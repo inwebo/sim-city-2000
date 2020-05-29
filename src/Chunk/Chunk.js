@@ -53,9 +53,10 @@ export default class Chunk {
      * @param {number} x
      * @param {number} y
      * @param {number} size
+     * @param {boolean} including
      * @return {Cell[]}
      */
-    getAdjacents(x, y, size = 1) {
+    getAdjacents(x, y, size = 1, including = false) {
         const dimension = (size * 2 + 1 );
         const origin    = new Vector2D(x - size, y - size);
 

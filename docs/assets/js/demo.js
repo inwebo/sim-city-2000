@@ -32,7 +32,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const chunk                = new Chunk(new Vector2D(100,100), new Vector2D(-32,-32));
             const chunkRender          = new RenderChunk(worldCanvas);
 
-            const cells = chunk.getAdjacents(8,8, 1);
+            const cells = chunk.getAdjacents(8,8, 1 );
+
+            console.log(cells);
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
         })
