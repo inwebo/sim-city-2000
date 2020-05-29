@@ -35,10 +35,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
                 });
 
-            const chunk       = new Chunk(new Vector2D(4,4))
+            const chunk       = new Chunk(new Vector2D(100,100), new Vector2D(0,0));
             const chunkRender = new RenderChunk(worldCanvas);
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
+
+            createImageBitmap(infraSpriteMap.get('road-1').imgData)
+                .then((img) => {
+                    const ctx = worldCanvas.getContext('2d');
+
+                    ctx.drawImage(img, 160, 65);
+                    ctx.drawImage(img, 176, 57);
+
+                });
         })
         .catch((err) => {
             console.log(err);

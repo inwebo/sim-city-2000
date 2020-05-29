@@ -7,6 +7,7 @@ export default class Cell {
      * @param {Vector2D} vector
      */
     constructor(vector = null) {
-        this.position = vector || new Vector2D();
+        this._index = vector || new Vector2D();
+
     }
 }

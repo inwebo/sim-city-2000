@@ -10,6 +10,10 @@ export default class Chunk {
         return this._dimensions;
     }
 
+    getOrigin() {
+        return this._origin;
+    }
+
     /**
      * @param {Vector2D} dimensions
      * @param {Vector2D|null} origin
@@ -38,8 +42,9 @@ export default class Chunk {
     /**
      * @param {number} x
      * @param {number} y
+     * @param {boolean} relative
      */
-    getCell(x, y) {
+    getCell(x, y, relative = true) {
         return this._grid[y][x];
     }
 }
