@@ -1,7 +1,7 @@
 {
-  "name": "@inwebo/city",
+  "name": "@inwebo/sim-city-200",
   "version": "0.0.7",
-  "description": "Sprite management for javascript",
+  "description": "Sim city 2000 generator",
   "main": "/src/index.js",
   "scripts": {
     "build": "webpack"
@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inwebo/Sprite.js.git"
+    "url": "git+https://github.com/inwebo/sim-city-2000.git"
   },
-  "homepage": "https://inwebo.github.io/Sprite.js/",
+  "homepage": "https://inwebo.github.io/sim-city-2000/",
   "author": "inwebo-veritas",
   "license": "GPL-3.0",
   "devDependencies": {
@@ -26,12 +26,12 @@
   },
   "dependencies": {
     "@inwebo/assetsloader.js": "^0.0",
-    "@inwebo/render.js": "^0.0",
-    "@inwebo/sprite.js": "^0.0",
-    "@inwebo/vector": "^0.0",
+    "@inwebo/render.js": "^0.0.9",
+    "@inwebo/sprite.js": "^0.0.11",
+    "@inwebo/vector": "^0.0.9",
     "lodash": "^4.17.15"
   },
   "bugs": {
-    "url": "https://github.com/inwebo/Sprite.js/issues"
+    "url": "https://github.com/inwebo/sim-city-2000/issues"
   }
 }
