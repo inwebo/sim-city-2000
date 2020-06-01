@@ -1,13 +1,23 @@
 {
   "tiles": {
-    "road-1": {
+    "left-to-right": {
       "origin": [8, 24],
       "dimensions": [32, 17],
       "transparency": null
     },
-    "road-2": {
+    "right-to-left": {
       "origin": [48, 24],
       "dimensions": [32, 17],
+      "transparency": null
+    },
+    "right-to-top": {
+      "origin": [263, 24],
+      "dimensions": [17, 17],
+      "transparency": null
+    },
+    "left-to-top": {
+      "origin": [328, 24],
+      "dimensions": [16, 17],
       "transparency": null
     }
   }
