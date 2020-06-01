@@ -1,5 +1,5 @@
 {
-  "frames": {
+  "tiles": {
     "road-1": {
       "origin": [8, 24],
       "dimensions": [32, 17],
