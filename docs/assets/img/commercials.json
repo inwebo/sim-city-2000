@@ -1,5 +1,5 @@
 {
-  "frames": {
+  "tiles": {
     "commercial-1": {
       "origin": [8, 105],
       "dimensions": [32, 23],
@@ -224,7 +224,7 @@
   "animations" : {
     "commercial-46": {
       "duration": 200,
-      "frames": [
+      "tiles": [
         "commercial-29",
         "commercial-30",
         "commercial-31",
@@ -237,7 +237,7 @@
     },
     "commercial-47": {
       "duration": 200,
-      "frames": [
+      "tiles": [
         "commercial-37",
         "commercial-38",
         "commercial-39",
