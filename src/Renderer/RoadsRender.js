@@ -20,10 +20,10 @@ export default class RoadsRender extends RenderChunk {
         }
 
 
-        console.log('To canvas', offsetX, offsetY);
+        // console.log('To canvas', offsetX, offsetY);
 
         // cell.setOrigin(new Vector2D(x, y));
-        console.log(cell.getOrigin());
+        // console.log(cell.getOrigin());
 
         return new Vector2D();
     }
@@ -71,7 +71,7 @@ export default class RoadsRender extends RenderChunk {
                             // let c = chunk.getCell(x, y).getOrigin();
                             console.log('index', chunk.getCell(x, y).getIndex());
                             console.log('canvas origin', originX, originY);
-                            this.cellToCanvasCoordinates( chunk.getCell(x, y), img);
+                            // this.cellToCanvasCoordinates( chunk.getCell(x, y), img);
                             // console.log(this.cellToCanvasCoordinates( chunk.getCell(x, y), img));
                             this.getCtx().drawImage(
                                 img,

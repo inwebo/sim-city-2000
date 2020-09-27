@@ -24,12 +24,46 @@ export default class RenderChunk extends Renderer2D {
        return  (height - 1) / 2;
     }
 
+    spriteToCanvas(cell, sprite) {
+
+    }
 
     /**
      * @param {Chunk} chunk
      * @param {Sprite} sprite
      * @private
      */
+    // _draw([chunk, sprite]) {
+    //     createImageBitmap(sprite.imgData)
+    //         .then((img) => {
+    //             for (let y = 0; y < chunk.getDimensions().getY(); y++) {
+    //                 const offsetX = (y % 2 !== 0) ? this.getOffsetX(img.width) : 0;
+    //
+    //                 let offsetY = 0;
+    //
+    //                 if(y !== 0) {
+    //                     // console.log(img.width/4)
+    //                     // offsetY += 8 * y;
+    //                 }
+    //
+    //
+    //
+    //                 for (let x = 0; x < chunk.getDimensions().getX(); x++) {
+    //                     // canvas relative
+    //                     const originX = (x * img.width + offsetX) + chunk.getOrigin().getX();
+    //                     const originY = (y * (img.height - 1) - offsetY) + chunk.getOrigin().getY();
+    //
+    //                     chunk.getCell(x, y).setOrigin(new Vector2D(originX, originY));
+    //
+    //                     this.getCtx().drawImage(
+    //                         img,
+    //                         chunk.getCell(x, y).getOrigin().getX(),
+    //                         chunk.getCell(x, y).getOrigin().getY()
+    //                     );
+    //                 }
+    //             }
+    //         });
+    // }
     _draw([chunk, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((img) => {
@@ -40,8 +74,10 @@ export default class RenderChunk extends Renderer2D {
 
                     if(y !== 0) {
                         // console.log(img.width/4)
-                        offsetY += 8 * y;
+                        // offsetY += 8 * y;
                     }
+
+
 
                     for (let x = 0; x < chunk.getDimensions().getX(); x++) {
                         // canvas relative
@@ -52,8 +88,8 @@ export default class RenderChunk extends Renderer2D {
 
                         this.getCtx().drawImage(
                             img,
-                            originX,
-                            originY
+                            chunk.getCell(x, y).getOrigin().getX(),
+                            chunk.getCell(x, y).getOrigin().getY()
                         );
                     }
                 }

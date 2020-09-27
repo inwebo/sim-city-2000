@@ -4,13 +4,6 @@ import Cell from "../Cell/Cell";
 export default class Chunk {
 
     /**
-     * @return {[Cell]}
-     */
-    getGrid() {
-        return this._grid;
-    }
-
-    /**
      * @return {Vector2D}
      */
     getDimensions() {
@@ -53,7 +46,19 @@ export default class Chunk {
      * @todo clamp vector
      */
     getCell(x, y) {
-        return this._grid[y][x];
+        if(typeof (this._grid[y]) !== 'undefined') {
+            if(typeof (this._grid[y][x]) !== 'undefined') {
+                return this._grid[y][x];
+            } else {
+                throw `Out of bound x : ${x}`;
+            }
+        }
+
+        throw `Out of bound y : ${y}`;
+    }
+
+    hasCell(x, y) {
+        return this._grid[y] !== 'undefined' && this._grid[y][x] !== 'undefined';
     }
 
     /**

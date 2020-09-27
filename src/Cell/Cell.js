@@ -47,14 +47,14 @@ export default class Cell {
     }
 
     /**
-     * @param {Vector2D|null} vector
      * @param {Vector2D|null} index
+     * @param {Vector2D|null} origin
      * @param {boolean} buildable
      * @param {boolean} hasRoad
      */
-    constructor(vector = null, index = null, buildable = false, hasRoad = false) {
-        this._index     = vector || new Vector2D();
-        this._origin    = index || new Vector2D();
+    constructor(index = null, origin = null, buildable = false, hasRoad = false) {
+        this._index     = index || new Vector2D();
+        this._origin    = origin || new Vector2D();
         this._buildable = buildable;
         this._hasRoad   = hasRoad;
     }

@@ -25,72 +25,49 @@ export default class Roads extends Chunk {
         return rows;
     }
 
-
-    setCell(x, y, value) {
-        this._grid[y][x] = value;
-    }
-
     _generateRoad() {
-        const randX = rand(0, this.getDimensions().getX());
-        const randY = rand(0, this.getDimensions().getY());
+
+        let randX = rand(0, this.getDimensions().getX());
+        let randY = rand(0, this.getDimensions().getY());
 
         const xOrigin = new Vector2D(randX, 0);
         const yOrigin = new Vector2D(0,  randY);
 
-        for(let i = xOrigin.getY(); i < this.getDimensions().getY(); i++) {
-            // this._grid[i][xOrigin.getX()] = 1;
+        console.log(randX, randY);
+
+        if(randX % 2 !== 0 && randY % 2 === 0 ) {
+            randX += 1;
+            if(randX >= this.getDimensions().getX()) {
+                randX = this.getDimensions().getX() - 1;
+            }
         }
 
-        for(let i = yOrigin.getX(); i < this.getDimensions().getX(); i++) {
-            // this._grid[yOrigin.getY()][i] = 1;
-            // this._grid[i][i].setHasRoad(true);
+        if(randY % 2 !== 0 && randX % 2 === 0 ) {
+            randY += 1;
+            if(randY > this.getDimensions().getY()) {
+                randY = this.getDimensions().getY() - 1;
+            }
         }
 
-        for(let i = yOrigin.getX(); i < this.getDimensions().getX(); i++) {
-            // this._grid[yOrigin.getY()][i] = 1;
-            // if(this._grid[yOrigin.getY()]) {
-            //     this._grid[i][i].setHasRoad(true);
-            // this._grid[i][i]
-            // }
+        // 9, 2
+        // 6, 10
+        // 10, 10
+
+        this.getCell(randX ,randY).setHasRoad(true);
+
+
+        for (let i = 0; i < 10; i++) {
+            try {
+                const hasRoad = this.getCell(randX + i ,randY + i);
+                if(hasRoad) {
+                    this.getCell(randX + i ,randY + i).setHasRoad(true);
+                }
+
+            } catch (e) {
+                console.error(e);
+                // cell doesnt exists
+                break;
+            }
         }
-
-        for(let i = yOrigin.getX() + 5; i < this.getDimensions().getX() - 3; i++) {
-            // this._grid[yOrigin.getY()][i] = 1;
-            // if(this._grid[yOrigin.getY()]) {
-            //     this._grid[i][i+3].setHasRoad(true);
-            // this._grid[i][i]
-            // }
-        }
-
-        this._grid[0][0].setHasRoad(true);
-        // this._grid[1][1].setHasRoad(true);
-        // this._grid[2][2].setHasRoad(true);
-
-        this._grid[0][1].setHasRoad(true);
-        // this._grid[1][2].setHasRoad(true);
-        // this._grid[2][3].setHasRoad(true);
-
-        this._grid[0][2].setHasRoad(true);
-        // this._grid[1][3].setHasRoad(true);
-        // this._grid[2][4].setHasRoad(true);
-
-        let c1 = this.getCell(0, 0);
-        let c2 = this.getCell(1, 0);
-        let c3 = this.getCell(2, 0);
-
-        // console.log(this.getCell(0, 0));
-        // console.log(this.getCell(1, 0));
-        // console.log(this.getCell(2, 0));
-    }
-
-    /**
-     * @param {Cell} cell
-     */
-    setXOrigin(cell) {
-
-    }
-
-    setYOrigin() {
-
     }
 }
