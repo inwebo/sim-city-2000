@@ -4,6 +4,13 @@ import Cell from "../Cell/Cell";
 export default class Chunk {
 
     /**
+     * @return {[Cell]}
+     */
+    getGrid() {
+        return this._grid;
+    }
+
+    /**
      * @return {Vector2D}
      */
     getDimensions() {

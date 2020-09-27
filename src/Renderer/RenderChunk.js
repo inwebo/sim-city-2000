@@ -1,6 +1,7 @@
 import {Renderer2D} from "@inwebo/render.js";
 import {Vector2D} from "@inwebo/vector";
-import ArrayHelper from "../Helpers/ArrayHelper";
+import {Sprite} from "@inwebo/sprite.js";
+import Chunk from "../Chunk/Chunk"
 
 export default class RenderChunk extends Renderer2D {
 
@@ -23,6 +24,12 @@ export default class RenderChunk extends Renderer2D {
        return  (height - 1) / 2;
     }
 
+
+    /**
+     * @param {Chunk} chunk
+     * @param {Sprite} sprite
+     * @private
+     */
     _draw([chunk, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((img) => {
@@ -32,7 +39,7 @@ export default class RenderChunk extends Renderer2D {
                     let offsetY = 0;
 
                     if(y !== 0) {
-                        // this.getOffsetY(img.height);
+                        // console.log(img.width/4)
                         offsetY += 8 * y;
                     }
 

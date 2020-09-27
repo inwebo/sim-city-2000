@@ -5,6 +5,9 @@ import {Vector2D}        from '@inwebo/vector';
 
 import Chunk from "../../../src/Chunk/Chunk";
 import RenderChunk from "../../../src/Renderer/RenderChunk";
+import rand from "../../../src/Helpers/Rand.js";
+import Roads from "../../../src/World/Roads";
+import RoadsRender from "../../../src/Renderer/RoadsRender";
 
 window.addEventListener("DOMContentLoaded", (event) => {
     const worldCanvas      = document.getElementById('world');
@@ -27,14 +30,36 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const infraOffScreenRender = new RenderOffScreen(worldCanvas, infraSheet);
             const infraSpriteMap       = new SpriteMap(infraJSONMap, infraOffScreenRender.getCtx());
 
+            const commercialsOffScreenRender = new RenderOffScreen(worldCanvas, commercialsSheet);
+            const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
+
             const chunk                = new Chunk(new Vector2D(100,100), new Vector2D(-32,-32));
             const chunkRender          = new RenderChunk(worldCanvas);
 
             const cells = chunk.getAdjacents(8,8, 1 );
 
-            console.log(cells);
+            const randX = rand(0, chunk.getDimensions().getX());
+            const randY = rand(0, chunk.getDimensions().getY());
+
+            const xOrigin = new Vector2D(randX, 0);
+            const yOrigin = new Vector2D(0,  randY);
+
+
+            const xEnd = new Vector2D(randX, chunk.getDimensions().getX());
+            const yEnd = new Vector2D( chunk.getDimensions().getY(), randY);
+
+            // console.table([xOrigin, xEnd, yOrigin, yEnd])
+
+            const roads       = new Roads(new Vector2D(100,100), new Vector2D());
+            const roadsRender = new RoadsRender(worldCanvas);
+
+
+
+            // console.log(roads.getGrid());
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
+            roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
+
         })
         .catch((err) => {
             console.log(err);
