@@ -6,23 +6,9 @@ import ArrayHelper from "../Helpers/ArrayHelper";
 
 export default class Roads extends Chunk {
 
-    constructor(dimensions, origin = null) {
-        super(dimensions, origin = null);
+    constructor(dimensions, cells) {
+        super(dimensions, cells);
         this._generateRoad();
-    }
-    _populate() {
-        const rows = new Array(this.getDimensions().getY()).fill(false);
-        Object.seal(rows);
-        for(let i = 0; i < rows.length; i++) {
-            let cols = [];
-            for(let j = 0; j < this.getDimensions().getX(); j++) {
-                cols.push(new Cell(new Vector2D(j, i)));
-            }
-            Object.seal(cols);
-            rows[i] = cols;
-        }
-
-        return rows;
     }
 
     _generateRoad() {
@@ -30,44 +16,67 @@ export default class Roads extends Chunk {
         let randX = rand(0, this.getDimensions().getX());
         let randY = rand(0, this.getDimensions().getY());
 
-        const xOrigin = new Vector2D(randX, 0);
-        const yOrigin = new Vector2D(0,  randY);
+        // if(randX % 2 !== 0 && randY % 2 === 0 ) {
+        //     randX += 1;
+        //     if(randX >= this.getDimensions().getX()) {
+        //         randX = this.getDimensions().getX() - 1;
+        //     }
+        // }
+        //
+        // if(randY % 2 !== 0 && randX % 2 === 0 ) {
+        //     randY += 1;
+        //     if(randY > this.getDimensions().getY()) {
+        //         randY = this.getDimensions().getY() - 1;
+        //     }
+        // }
 
-        console.log(randX, randY);
+        let loop = 0;
+        let x, y = 0;
 
-        if(randX % 2 !== 0 && randY % 2 === 0 ) {
-            randX += 1;
-            if(randX >= this.getDimensions().getX()) {
-                randX = this.getDimensions().getX() - 1;
-            }
-        }
-
-        if(randY % 2 !== 0 && randX % 2 === 0 ) {
-            randY += 1;
-            if(randY > this.getDimensions().getY()) {
-                randY = this.getDimensions().getY() - 1;
-            }
-        }
 
         // 9, 2
         // 6, 10
         // 10, 10
 
-        this.getCell(randX ,randY).setHasRoad(true);
+        while (this.getCells().hasCell(loop,0) !== false) {
 
-
-        for (let i = 0; i < 10; i++) {
-            try {
-                const hasRoad = this.getCell(randX + i ,randY + i);
-                if(hasRoad) {
-                    this.getCell(randX + i ,randY + i).setHasRoad(true);
-                }
-
-            } catch (e) {
-                console.error(e);
-                // cell doesnt exists
-                break;
-            }
+            loop++;
         }
+
+        // console.log(this.getCells().getCell(0,0));
+        this.getCells().getCell(0,0).setHasRoad(true);
+
+        this.getCells().getCell(1,1).setHasRoad(true);
+        this.getCells().getCell(1,2).setHasRoad(true);
+
+        this.getCells().getCell(2,3).setHasRoad(true);
+        this.getCells().getCell(2,4).setHasRoad(true);
+
+        this.getCells().getCell(3,5).setHasRoad(true);
+        this.getCells().getCell(3,5).setHasRoad(true);
+
+
+        // this.getCells().getCell(1,2).setHasRoad(true);
+        // this.getCells().getCell(2,3).setHasRoad(true);
+        // this.getCells().getCell(2,4).setHasRoad(true);
+        // this.getCells().getCell(3,5).setHasRoad(true);
+        // this.getCells().getCell(3,6).setHasRoad(true);
+
+
+
+
+        // for (let i = 0; i < 10; i++) {
+        //     try {
+        //         // const hasRoad = this.getCell(randX + i ,randY + i);
+        //         if(hasRoad) {
+        //             // this.getCell(randX + i ,randY + i).setHasRoad(true);
+        //         }
+        //
+        //     } catch (e) {
+        //         console.error(e);
+        //         // cell doesnt exists
+        //         break;
+        //     }
+        // }
     }
 }

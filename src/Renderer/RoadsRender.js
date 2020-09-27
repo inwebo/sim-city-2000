@@ -32,55 +32,36 @@ export default class RoadsRender extends RenderChunk {
 
         createImageBitmap(sprite.imgData)
             .then((img) => {
-                for (let y = 0; y < chunk.getDimensions().getY(); y++) {
-                    // const offsetX = (y % 2 !== 0) ? this.getOffsetX(img.width) : 0;
-                    // const offsetX = (y % 2 !== 0) ? this.getOffsetX(img.width)  : 0;
-                    // const offsetX = 0;
-                    let offsetY = 0;
+                const rows = chunk.getCells().getRows();
 
-                    if(y !== 0) {
-                        // console.log(img.width/4)
-                        offsetY += 8 * y;
-                    }
+                rows.forEach((row) => {
+                    row.forEach((cell) => {
 
-                    for (let x = 0; x < chunk.getDimensions().getX(); x++) {
-                        // const offsetX = this.getOffsetX(img.width) * -1 * x;
-                        // if(x%2 !== 0) {
-                        //     const offsetX =  this.getOffsetX(img.width) * -1 * x;
-                        // } else {
-                        //     const offsetX =  this.getOffsetX(img.width) * -1 * x;
-                        // }
+                        let imgWidth = (img.width % 2 !== 0) ? img.width - 1 : img.width;
+                        let imgHeight = (img.height % 2 !== 0) ? img.height - 1 : img.height;
 
-                        const offsetX =  this.getOffsetX(img.width) * -1 * x;
+                        let offsetX = imgWidth * cell.getOrigin().getX();
+                        let offsetY = imgHeight * cell.getOrigin().getY() ;
 
 
-                        // canvas relative
-                        const originX = (x * img.width + offsetX) + chunk.getOrigin().getX();
-                        const originY = (y * (img.height - 1) - offsetY) + chunk.getOrigin().getY();
 
-                        // console.log(this.cellToCanvasCoordinates(chunk.getCell(x,y)));
+                        if(cell.getOrigin().getY() % 2 !== 0) {
+                            offsetX -= imgWidth / 2;
+                        }
 
-                        // chunk.getCell(x, y).setOrigin(new Vector2D(originX, originY));
-
-                        // console.log(chunk.getCell(x,y).getOrigin().getX());
-                        // console.log(chunk.getCell(x,y).getOrigin().getY());
-
-                        if(chunk.getCell(x,y).hasRoad()) {
+                        offsetY -= (cell.getOrigin().getY() * (imgHeight / 2)) ;
 
 
-                            // let c = chunk.getCell(x, y).getOrigin();
-                            console.log('index', chunk.getCell(x, y).getIndex());
-                            console.log('canvas origin', originX, originY);
-                            // this.cellToCanvasCoordinates( chunk.getCell(x, y), img);
-                            // console.log(this.cellToCanvasCoordinates( chunk.getCell(x, y), img));
+                        // console.log(offsetY);
+                        if (cell.hasRoad()) {
                             this.getCtx().drawImage(
                                 img,
-                                originX,
-                                originY
+                                offsetX,
+                                offsetY
                             );
                         }
-                    }
-                }
+                    });
+                });
             });
     }
 }

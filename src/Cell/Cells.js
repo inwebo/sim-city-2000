@@ -16,7 +16,23 @@ export default class Cells {
             rows[i] = cols;
         }
 
-        this._cells = rows;
+        this._rows = rows;
+    }
+
+    /**
+     * @return {[Cell][]}
+     */
+    getRows() {
+        return this._rows;
+    }
+
+    getCells() {
+        this.getRows().forEach((cols) => {
+            cols.forEach((cell) => {
+                // console.log(cell);
+                // yield(cell);
+            });
+        });
     }
 
     /**
@@ -24,7 +40,7 @@ export default class Cells {
      * @return {boolean}
      */
     hasRow(row) {
-        return (typeof (this._cells[row]) !== 'undefined');
+        return (typeof (this._rows[row]) !== 'undefined');
     }
 
     /**
@@ -32,12 +48,12 @@ export default class Cells {
      * @return {boolean}
      */
     hasCol(col) {
-        return (typeof (this._cells[0][col]) !== 'undefined');
+        return (typeof (this._rows[0][col]) !== 'undefined');
     }
 
     hasCell(x, y) {
         if(this.hasRow(y)) {
-            if(typeof (this._cells[y][x]) !== 'undefined') {
+            if(typeof (this._rows[y][x]) !== 'undefined') {
                 return true;
             }
         }
@@ -52,7 +68,7 @@ export default class Cells {
      */
     getCell(x, y) {
         if(this.hasCell(x, y)) {
-            return this._cells[y][x];
+            return this._rows[y][x];
         }
 
         return false;

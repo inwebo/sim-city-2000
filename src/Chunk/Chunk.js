@@ -1,5 +1,6 @@
 import {Vector2D} from "@inwebo/vector";
 import Cell from "../Cell/Cell";
+import Cells from "../Cell/Cells";
 
 export default class Chunk {
 
@@ -10,55 +11,30 @@ export default class Chunk {
         return this._dimensions;
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getOrigin() {
         return this._origin;
     }
 
     /**
-     * @param {Vector2D} dimensions
-     * @param {Vector2D|null} origin
+     *
+     * @return {Cells}
      */
-    constructor(dimensions, origin = null) {
-        this._dimensions = dimensions;
-        this._origin     = origin || new Vector2D();
-        this._grid       = this._populate();
-    }
-
-    _populate() {
-        const rows = new Array(this.getDimensions().getY()).fill(null);
-        Object.seal(rows);
-        for(let i = 0; i < rows.length; i++) {
-            let cols = [];
-            for(let j = 0; j < this.getDimensions().getX(); j++) {
-                cols.push(new Cell(new Vector2D(j, i)));
-            }
-            Object.seal(cols);
-            rows[i] = cols;
-        }
-
-        return rows;
+    getCells() {
+        return this._cells;
     }
 
     /**
-     * @param {number} x
-     * @param {number} y
-     *
-     * @todo clamp vector
+     * @param {Vector2D} dimensions
+     * @param {Cells} cells
+     * @param {Vector2D|null} origin
      */
-    getCell(x, y) {
-        if(typeof (this._grid[y]) !== 'undefined') {
-            if(typeof (this._grid[y][x]) !== 'undefined') {
-                return this._grid[y][x];
-            } else {
-                throw `Out of bound x : ${x}`;
-            }
-        }
-
-        throw `Out of bound y : ${y}`;
-    }
-
-    hasCell(x, y) {
-        return this._grid[y] !== 'undefined' && this._grid[y][x] !== 'undefined';
+    constructor(dimensions, cells, origin = null) {
+        this._dimensions = dimensions;
+        this._cells      = cells;
+        this._origin     = origin || new Vector2D();
     }
 
     /**
@@ -78,7 +54,7 @@ export default class Chunk {
             for (let j = 1; j <= dimension; j++) {
 
                 if((startOrigin.getX() === x && startOrigin.getY() === y) === false) {
-                    buffer.push(this.getCell(startOrigin.getX(), startOrigin.getY()));
+                    buffer.push(this._cells.getCell(startOrigin.getX(), startOrigin.getY()));
                 }
 
                 if(startOrigin.getY() >= y + size) {

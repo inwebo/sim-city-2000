@@ -10,89 +10,50 @@ export default class RenderChunk extends Renderer2D {
         this._bufferImg = null;
     }
 
-    /**
-     * @param {number} width
-     */
-    getOffsetX(width) {
-        return width / 2;
-    }
-
-    /**
-     * @param {number} height
-     */
-    getOffsetY(height) {
-       return  (height - 1) / 2;
-    }
-
-    spriteToCanvas(cell, sprite) {
-
-    }
-
-    /**
-     * @param {Chunk} chunk
-     * @param {Sprite} sprite
-     * @private
-     */
-    // _draw([chunk, sprite]) {
-    //     createImageBitmap(sprite.imgData)
-    //         .then((img) => {
-    //             for (let y = 0; y < chunk.getDimensions().getY(); y++) {
-    //                 const offsetX = (y % 2 !== 0) ? this.getOffsetX(img.width) : 0;
-    //
-    //                 let offsetY = 0;
-    //
-    //                 if(y !== 0) {
-    //                     // console.log(img.width/4)
-    //                     // offsetY += 8 * y;
-    //                 }
-    //
-    //
-    //
-    //                 for (let x = 0; x < chunk.getDimensions().getX(); x++) {
-    //                     // canvas relative
-    //                     const originX = (x * img.width + offsetX) + chunk.getOrigin().getX();
-    //                     const originY = (y * (img.height - 1) - offsetY) + chunk.getOrigin().getY();
-    //
-    //                     chunk.getCell(x, y).setOrigin(new Vector2D(originX, originY));
-    //
-    //                     this.getCtx().drawImage(
-    //                         img,
-    //                         chunk.getCell(x, y).getOrigin().getX(),
-    //                         chunk.getCell(x, y).getOrigin().getY()
-    //                     );
-    //                 }
-    //             }
-    //         });
-    // }
     _draw([chunk, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((img) => {
-                for (let y = 0; y < chunk.getDimensions().getY(); y++) {
-                    const offsetX = (y % 2 !== 0) ? this.getOffsetX(img.width) : 0;
 
-                    let offsetY = 0;
+                const rows = chunk.getCells().getRows();
 
-                    if(y !== 0) {
-                        // console.log(img.width/4)
-                        // offsetY += 8 * y;
-                    }
+                rows.forEach((row) => {
+                    row.forEach((cell) => {
+
+                        let imgWidth = (img.width % 2 !== 0) ? img.width - 1 : img.width;
+                        let imgHeight = (img.height % 2 !== 0) ? img.height - 1 : img.height;
+
+                        let offsetX = imgWidth * cell.getOrigin().getX();
+                        let offsetY = imgHeight * cell.getOrigin().getY() ;
 
 
 
-                    for (let x = 0; x < chunk.getDimensions().getX(); x++) {
-                        // canvas relative
-                        const originX = (x * img.width + offsetX) + chunk.getOrigin().getX();
-                        const originY = (y * (img.height - 1) - offsetY) + chunk.getOrigin().getY();
+                        if(cell.getOrigin().getY() % 2 !== 0) {
+                            offsetX -= imgWidth / 2;
+                        }
 
-                        chunk.getCell(x, y).setOrigin(new Vector2D(originX, originY));
+                        // console.log(cell.getOrigin().getY() * (imgHeight / 2));
+                        offsetY -= (cell.getOrigin().getY() * (imgHeight / 2)) ;
+
+
+                        // console.log(offsetY);
 
                         this.getCtx().drawImage(
                             img,
-                            chunk.getCell(x, y).getOrigin().getX(),
-                            chunk.getCell(x, y).getOrigin().getY()
+                            offsetX,
+                            offsetY
                         );
-                    }
-                }
+                    });
+                });
+
+                // console.log(chunk.getCells().getCells());
+                // chunk.getCells().getCells().forEach((cell) => {
+                    // console.log(cell);
+                    // this.getCtx().drawImage(
+                    //     img,
+                    //     cell.getOrigin().getX(),
+                    //     cell.getOrigin().getY()
+                    // );
+                // });
             });
     }
 }

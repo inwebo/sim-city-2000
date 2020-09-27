@@ -34,26 +34,30 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsOffScreenRender = new RenderOffScreen(worldCanvas, commercialsSheet);
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
 
-            const chunk                = new Chunk(new Vector2D(5,5), new Vector2D(0,0));
+            const size = new Vector2D(22,39);
+
+            const cells = new Cells(size);
+            // console.log(cells.getCells());
+            const chunk                = new Chunk(size, cells);
             const chunkRender          = new RenderChunk(worldCanvas);
 
-            // const roads       = new Roads(new Vector2D(10,10), new Vector2D());
-            // const roadsRender = new RoadsRender(worldCanvas);
+            const roads       = new Roads(size, cells);
+            const roadsRender = new RoadsRender(worldCanvas);
 
 
 
             // console.log(roads.getGrid());
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
-            // roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
+            roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
 
-            let cells = new Cells(new Vector2D(5,5));
+            // let cells = new Cells(new Vector2D(5,5));
             // console.log(cells);
             // console.log(cells.hasRow(9));
             // console.log(cells.hasCell(9, 12));
-            console.log(cells.getCell(0, 0));
-            console.log(cells.getCell(1, 0));
-            console.log(cells.getCell(2, 0));
+            // console.log(cells.getCell(0, 0));
+            // console.log(cells.getCell(1, 0));
+            // console.log(cells.getCell(2, 0));
             // console.log(cells.indexToCanvas(0, 0));
 
 
