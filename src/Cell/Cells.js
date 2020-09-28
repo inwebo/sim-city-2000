@@ -51,6 +51,11 @@ export default class Cells {
         return (typeof (this._rows[0][col]) !== 'undefined');
     }
 
+    /**
+     * @param {int} x col
+     * @param {int} y row
+     * @return {boolean}
+     */
     hasCell(x, y) {
         if(this.hasRow(y)) {
             if(typeof (this._rows[y][x]) !== 'undefined') {
@@ -74,11 +79,16 @@ export default class Cells {
         return false;
     }
 
-    * generator() {
-        this._rows.forEach((row) => {
-            row.forEach((cell) => {
+    /**
+     * Return all cells by reference
+     *
+     * @return {Generator<Cell>}
+     */
+    * getGenerator() {
+        for(const row of this._rows) {
+            for(const cell of row) {
                 yield cell;
-            });
-        });
+            }
+        }
     }
 }
