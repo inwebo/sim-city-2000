@@ -73,4 +73,12 @@ export default class Cells {
 
         return false;
     }
+
+    * generator() {
+        this._rows.forEach((row) => {
+            row.forEach((cell) => {
+                yield cell;
+            });
+        });
+    }
 }
