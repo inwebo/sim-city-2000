@@ -25,7 +25,7 @@ export default class AbstractRender extends Renderer2D {
     }
 
     /**
-     * Is current cell or nullable element drawable, it comes from a chunk generator
+     * Is current cell or nullable element, drawable ?, it comes from a chunk generator
      *
      * @param {Cell|null} cell
      * @return {boolean}
@@ -47,5 +47,31 @@ export default class AbstractRender extends Renderer2D {
             origin.getX(),
             origin.getY()
         );
+    }
+
+    /**
+     * @param {Chunk} chunk
+     * @param {Sprite} sprite
+     * @private
+     */
+    _draw([chunk, sprite]) {
+        createImageBitmap(sprite.imgData)
+            .then((imageBitmap) => {
+                /**
+                 * @type {Generator<Cell>}
+                 */
+                const cells = this.getGenerator(chunk);
+
+                for (let cell of cells) {
+                    /**
+                     * @type {Vector2D}
+                     */
+                    const offset = this.cellToCanvasCoordinates(cell, imageBitmap);
+
+                    if (this.isDrawable(cell)) {
+                        this.drawImageBitmap(imageBitmap, offset);
+                    }
+                }
+            });
     }
 }
