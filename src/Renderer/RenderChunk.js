@@ -1,8 +1,10 @@
-import {Renderer2D} from "@inwebo/render.js";
 import {Vector2D} from "@inwebo/vector";
 import AbstractRender from "./AbstractRender";
 
 export default class RenderChunk extends AbstractRender {
+    /**
+     * @inheritDoc
+     */
     _draw([chunk, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((imageBitmap) => {
