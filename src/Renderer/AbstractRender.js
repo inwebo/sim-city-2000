@@ -2,7 +2,7 @@ import {Renderer2D} from "@inwebo/render.js";
 import {Vector2D} from "@inwebo/vector";
 import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
-
+import {Sprite} from "@inwebo/sprite.js";
 export default class AbstractRender extends Renderer2D {
 
     /**
@@ -37,13 +37,13 @@ export default class AbstractRender extends Renderer2D {
     /**
      * Draw imgData to canvas's coordinate offset
      *
-     * @param {ImageBitmap}   imgData
+     * @param {ImageBitmap}   imageBitmap
      * @param {Vector2D|null} offset  canvas's offset coordinate, default no offset
      */
-    drawImageBitmap(imgData, offset = null) {
+    drawImageBitmap(imageBitmap, offset = null) {
         const origin = offset || new Vector2D();
         this.getCtx().drawImage(
-            imgData,
+            imageBitmap,
             origin.getX(),
             origin.getY()
         );
