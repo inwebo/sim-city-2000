@@ -50,8 +50,11 @@ export default class AbstractRender extends Renderer2D {
     }
 
     /**
+     * Main loop cell function drawing with CanvasRenderingContext2D.drawImage()
+     *
      * @param {Chunk} chunk
      * @param {Sprite} sprite
+     * @see https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/drawImage
      * @private
      */
     _draw([chunk, sprite]) {
