@@ -9,7 +9,7 @@ Procedural Sim city 2000.
 
 ### NPM
 ```shell script
-npm install @inwebo/sprite.js
+npm install @inwebo/sim-city-2000.js
 ```
 
 ## Dependencies
@@ -19,6 +19,4 @@ npm install @inwebo/sprite.js
 
 ## Demo
 
-See [index.html](https://inwebo.github.io/Sprite.js/), [demo.js](docs/demo.js), [index.html](docs/index.html.bak).
-
-https://stackoverflow.com/questions/38298056/nice-drag-and-drop-on-a-canvas-html5
+See [index.html](https://inwebo.github.io/sim-city-2000.js/), [demo.js](docs/js/demo.js), [index.html](docs/index.html).
