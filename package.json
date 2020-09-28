@@ -1,7 +1,7 @@
 {
-  "name": "@inwebo/city",
-  "version": "0.0.7",
-  "description": "Sprite management for javascript",
+  "name": "@inwebo/sim-city-200",
+  "version": "0.0.1",
+  "description": "Sim city 2000 generator",
   "main": "/src/index.js",
   "scripts": {
     "build": "webpack"
@@ -11,27 +11,33 @@
     "javascript",
     "es6-javascript",
     "sprite",
-    "spritesheet"
+    "spritesheet",
+    "procedural",
+    "sim",
+    "sim city",
+    "generation"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inwebo/Sprite.js.git"
+    "url": "git+https://github.com/inwebo/sim-city-2000.git"
   },
-  "homepage": "https://inwebo.github.io/Sprite.js/",
+  "homepage": "https://inwebo.github.io/sim-city-2000/",
   "author": "inwebo-veritas",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "serialize-javascript": ">=3.1.0"
   },
   "dependencies": {
     "@inwebo/assetsloader.js": "^0.0",
-    "@inwebo/render.js": "^0.0",
-    "@inwebo/sprite.js": "^0.0",
-    "@inwebo/vector": "^0.0",
-    "lodash": "^4.17.19"
+    "@inwebo/render.js": "^0.0.9",
+    "@inwebo/sprite.js": "^0.0.11",
+    "@inwebo/vector": "^0.0.9",
+    "lodash": "^4.17.20"
   },
   "bugs": {
-    "url": "https://github.com/inwebo/Sprite.js/issues"
+    "url": "https://github.com/inwebo/sim-city-2000/issues"
   }
 }

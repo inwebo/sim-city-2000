@@ -1,5 +1,6 @@
 import {Vector2D} from "@inwebo/vector";
 import Cell from "../Cell/Cell";
+import Cells from "../Cell/Cells";
 
 export default class Chunk {
 
@@ -11,56 +12,60 @@ export default class Chunk {
     }
 
     /**
-     * @return {Cell[]}
+     * @return {Vector2D}
+     */
+    getOrigin() {
+        return this._origin;
+    }
+
+    /**
+     *
+     * @return {Cells}
      */
     getCells() {
         return this._cells;
     }
 
     /**
-     *
-     * @see https://softwareengineering.stackexchange.com/questions/212808/treating-a-1d-data-structure-as-2d-grid
-     * @param x
-     * @param y
-     * @return {any}
+     * @param {Vector2D} dimensions
+     * @param {Cells} cells
+     * @param {Vector2D|null} origin
      */
-    getCellByCoordinate(x, y) {
-        const index = x + this.getDimensions().getX() * y;
+    constructor(dimensions, cells, origin = null) {
+        this._dimensions = dimensions;
+        this._cells      = cells;
+        this._origin     = origin || new Vector2D();
+    }
 
-        if(index > this._cells.length - 1) {
-            throw `Out of bound exception this._cells.length = ${this._cells.length}, getter index ${index} > [0, ${this._cells.length -1}]`;
+    /**
+     * @param {number} x
+     * @param {number} y
+     * @param {number} size
+     * @param {boolean} including
+     * @return {Cell[]}
+     */
+    getAdjacents(x, y, size = 1, including = false) {
+        const dimension = (size * 2 + 1 );
+        const startOrigin    = new Vector2D(x - size, y - size);
+
+        const buffer = [];
+
+        for (let i = 1; i <= dimension; i++) {
+            for (let j = 1; j <= dimension; j++) {
+
+                if((startOrigin.getX() === x && startOrigin.getY() === y) === false) {
+                    buffer.push(this._cells.getCell(startOrigin.getX(), startOrigin.getY()));
+                }
+
+                if(startOrigin.getY() >= y + size) {
+                    startOrigin.setY(y-size);
+                } else {
+                    startOrigin.addY(1);
+                }
+            }
+            startOrigin.addX(1);
         }
 
-        return this._cells[index];
-    }
-
-    /**
-     * @param index
-     * @return {Cell}
-     */
-    getCellByInde(index) {
-        return this._cells[index];
-    }
-
-    /**
-     * @param {Vector2D} dimensions
-     */
-    constructor(dimensions) {
-        this._dimensions = dimensions;
-
-        const buffer = new Array(this.getDimensions().getX() * this.getDimensions().getY()).fill(null);
-        Object.seal(buffer);
-        this._cells = buffer;
-
-        this._populate();
-    }
-
-    /**
-     * @private
-     */
-    _populate() {
-        this._cells.forEach((cell, index) => {
-            this._cells[index] = new Cell(index);
-        });
+        return buffer;
     }
 }
