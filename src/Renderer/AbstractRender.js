@@ -14,7 +14,8 @@ export default class AbstractRender extends Renderer2D {
     }
 
     /**
-     * @param {Cell}      cell
+     * Convert Cell index [x,y] to canvas coordinate [x+n, y+m]
+     * @param {Cell}        cell cell.getIndex()
      * @param {ImageBitmap} imageBitmap
      *
      * @return {Vector2D}
@@ -24,7 +25,7 @@ export default class AbstractRender extends Renderer2D {
     }
 
     /**
-     * Is current cell drawable, it comes from a chunk generator
+     * Is current cell or nullable element drawable, it comes from a chunk generator
      *
      * @param {Cell|null} cell
      * @return {boolean}
@@ -34,9 +35,10 @@ export default class AbstractRender extends Renderer2D {
     }
 
     /**
-     * @param {ImageBitmap} imgData
+     * Draw imgData to canvas's coordinate offset
      *
-     * @param {Vector2D|null} offset Canvas coordinate
+     * @param {ImageBitmap}   imgData
+     * @param {Vector2D|null} offset  canvas's offset coordinate, default no offset
      */
     drawImageBitmap(imgData, offset = null) {
         const origin = offset || new Vector2D();
