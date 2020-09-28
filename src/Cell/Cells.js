@@ -3,6 +3,9 @@ import {Vector2D} from "@inwebo/vector";
 
 export default class Cells {
 
+    /**
+     * @param {Vector2D} dimensions Array of rows (y) with cols (x) dimensions.
+     */
     constructor(dimensions) {
         this._dimensions = dimensions;
         const rows = new Array(dimensions.getY()).fill(null);
