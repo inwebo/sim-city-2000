@@ -1,6 +1,6 @@
 {
   "name": "@inwebo/sim-city-200",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "description": "Sim city 2000 generator",
   "main": "/src/index.js",
   "scripts": {
@@ -11,7 +11,11 @@
     "javascript",
     "es6-javascript",
     "sprite",
-    "spritesheet"
+    "spritesheet",
+    "procedural",
+    "sim",
+    "sim city",
+    "generation"
   ],
   "repository": {
     "type": "git",
