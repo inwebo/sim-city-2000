@@ -26,15 +26,6 @@ export default class Cells {
         return this._rows;
     }
 
-    getCells() {
-        this.getRows().forEach((cols) => {
-            cols.forEach((cell) => {
-                // console.log(cell);
-                // yield(cell);
-            });
-        });
-    }
-
     /**
      * @param {int} row index, start at 0
      * @return {boolean}
