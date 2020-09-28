@@ -29,7 +29,8 @@
     "@inwebo/render.js": "^0.0.9",
     "@inwebo/sprite.js": "^0.0.11",
     "@inwebo/vector": "^0.0.9",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "serve": "^11.3.2"
   },
   "bugs": {
     "url": "https://github.com/inwebo/sim-city-2000/issues"
