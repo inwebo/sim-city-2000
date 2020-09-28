@@ -27,7 +27,7 @@ export default class AbstractRender extends Renderer2D {
     /**
      * Is current cell or nullable element, drawable ?, it comes from a chunk generator
      *
-     * @param {Cell|null} cell
+     * @param {Cell|null|*} cell
      * @return {boolean}
      */
     isDrawable(cell = null) {
