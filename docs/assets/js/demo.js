@@ -47,11 +47,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
             roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
 
-            let generator = cells.getGenerator();
-
-            for(let cell of generator) {
-                cell.setHasRoad(true);
-            }
 
             // console.log(cells.generator());
             // console.log(cells.generator().next().value);
