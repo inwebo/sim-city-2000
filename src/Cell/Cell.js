@@ -46,6 +46,22 @@ export default class Cell {
         return this._hasRoad;
     }
 
+    isEvenRow() {
+        return this._index.getY() % 2 === 0;
+    }
+
+    isOddRow() {
+        return !this.isEvenRow();
+    }
+
+    isEvenCol() {
+        return this._index.getX() % 2 === 0;
+    }
+
+    isOddCol() {
+        return !this.isEvenCol();
+    }
+
     /**
      * @param {Vector2D|null} index
      * @param {Vector2D|null} origin

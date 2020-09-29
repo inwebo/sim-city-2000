@@ -17,7 +17,7 @@ export default class CellToCanvas {
         let y  = height * cell.getOrigin().getY();
 
         if(cell.getOrigin().getY() % 2 !== 0) {
-            x -= width / 2;
+            x += width / 2;
         }
 
         y -= (cell.getOrigin().getY() * (height / 2)) ;
