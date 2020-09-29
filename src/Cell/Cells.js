@@ -63,7 +63,7 @@ export default class Cells {
     /**
      * @param {int} x
      * @param {int} y
-     * @return {[Cell]|boolean}
+     * @return {Cell|boolean}
      */
     getCell(x, y) {
         if(this.hasCell(x, y)) {
@@ -71,6 +71,14 @@ export default class Cells {
         }
 
         return false;
+    }
+
+    /**
+     * @param {Vector2D} vector2d
+     * @return {Cell|boolean}
+     */
+    getCellByVector(vector2d) {
+        return this.getCell(vector2d.getX(), vector2d.getY());
     }
 
     /**
