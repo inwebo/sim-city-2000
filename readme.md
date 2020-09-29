@@ -20,3 +20,11 @@ npm install @inwebo/sim-city-2000.js
 ## Demo
 
 See [index.html](https://inwebo.github.io/sim-city-2000.js/), [demo.js](docs/js/demo.js), [index.html](docs/index.html).
+
+## Web
+
+* [Amit's game](http://www-cs-students.stanford.edu/%7Eamitp/gameprog.html)
+* [Create isometric worl](https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511)
+* [Base data structure](http://archive.gamedev.net/archive/reference/programming/features/arttilebase/page2.html)
+* [Stack overflow](https://stackoverflow.com/questions/11968167/random-2d-tile-map-generating-algorithm)
+* [Map generation](http://pcg.wikidot.com/pcg-algorithm%3amap-generation)
