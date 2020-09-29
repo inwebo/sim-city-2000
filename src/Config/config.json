@@ -10,5 +10,11 @@
       "width": 10,
       "height": 10
     }
+  },
+  "canvas": {
+    "offset": {
+      "x": 0,
+      "y": 0
+    }
   }
 }
