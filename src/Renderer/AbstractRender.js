@@ -3,6 +3,7 @@ import {Vector2D} from "@inwebo/vector";
 import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
 import {Sprite} from "@inwebo/sprite.js";
+
 export default class AbstractRender extends Renderer2D {
 
     /**
