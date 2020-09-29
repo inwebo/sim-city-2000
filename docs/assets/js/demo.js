@@ -44,12 +44,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const roads       = new Roads(size, cells);
             const roadsRender = new RoadsRender(worldCanvas);
 
-
-
-            // console.log(roads.getGrid());
-
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
             roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
+
+
+            // console.log(cells.generator());
+            // console.log(cells.generator().next().value);
 
             // let cells = new Cells(new Vector2D(5,5));
             // console.log(cells);
@@ -59,8 +59,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
             // console.log(cells.getCell(1, 0));
             // console.log(cells.getCell(2, 0));
             // console.log(cells.indexToCanvas(0, 0));
-
-
 
         })
         .catch((err) => {

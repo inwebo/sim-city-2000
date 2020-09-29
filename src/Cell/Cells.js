@@ -3,6 +3,9 @@ import {Vector2D} from "@inwebo/vector";
 
 export default class Cells {
 
+    /**
+     * @param {Vector2D} dimensions Array of rows (y) with cols (x) dimensions.
+     */
     constructor(dimensions) {
         this._dimensions = dimensions;
         const rows = new Array(dimensions.getY()).fill(null);
@@ -26,15 +29,6 @@ export default class Cells {
         return this._rows;
     }
 
-    getCells() {
-        this.getRows().forEach((cols) => {
-            cols.forEach((cell) => {
-                // console.log(cell);
-                // yield(cell);
-            });
-        });
-    }
-
     /**
      * @param {int} row index, start at 0
      * @return {boolean}
@@ -51,6 +45,11 @@ export default class Cells {
         return (typeof (this._rows[0][col]) !== 'undefined');
     }
 
+    /**
+     * @param {int} x col
+     * @param {int} y row
+     * @return {boolean}
+     */
     hasCell(x, y) {
         if(this.hasRow(y)) {
             if(typeof (this._rows[y][x]) !== 'undefined') {
@@ -72,5 +71,18 @@ export default class Cells {
         }
 
         return false;
+    }
+
+    /**
+     * Return all cells by reference
+     *
+     * @return {Generator<Cell>}
+     */
+    * getGenerator() {
+        for(const row of this._rows) {
+            for(const cell of row) {
+                yield cell;
+            }
+        }
     }
 }
