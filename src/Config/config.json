@@ -1,0 +1,20 @@
+{
+  "cell": {
+    "size": {
+      "width": 17,
+      "height": 16
+    }
+  },
+  "chunk": {
+    "cells": {
+      "width": 10,
+      "height": 10
+    }
+  },
+  "canvas": {
+    "offset": {
+      "x": 0,
+      "y": 0
+    }
+  }
+}
