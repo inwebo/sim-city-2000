@@ -37,7 +37,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const size = new Vector2D(22,39);
 
             const cells = new Cells(size);
-            // console.log(cells.getCells());
             const chunk                = new Chunk(size, cells);
             const chunkRender          = new RenderChunk(worldCanvas);
 
@@ -46,19 +45,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
             roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
-
-
-            // console.log(cells.generator());
-            // console.log(cells.generator().next().value);
-
-            // let cells = new Cells(new Vector2D(5,5));
-            // console.log(cells);
-            // console.log(cells.hasRow(9));
-            // console.log(cells.hasCell(9, 12));
-            // console.log(cells.getCell(0, 0));
-            // console.log(cells.getCell(1, 0));
-            // console.log(cells.getCell(2, 0));
-            // console.log(cells.indexToCanvas(0, 0));
 
         })
         .catch((err) => {
