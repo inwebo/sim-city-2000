@@ -19,7 +19,6 @@ export default class Chunk {
     }
 
     /**
-     *
      * @return {Cells}
      */
     getCells() {
