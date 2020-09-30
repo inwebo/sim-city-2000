@@ -19,10 +19,14 @@ export default class AbstractRender extends Renderer2D {
      * @param {Cell}        cell cell.getIndex()
      * @param {ImageBitmap} imageBitmap
      *
-     * @return {Vector2D}
+     * @return {Vector2D|boolean}
      */
     cellToCanvasCoordinates(cell, imageBitmap) {
-        return CellToCanvas.toCanvas(cell, imageBitmap.width, imageBitmap.height);
+        if(cell !== false) {
+            return CellToCanvas.toCanvas(cell, imageBitmap.width, imageBitmap.height);
+        }
+
+        return false;
     }
 
     /**
