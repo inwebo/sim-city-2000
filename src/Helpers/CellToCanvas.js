@@ -14,14 +14,14 @@ export default class CellToCanvas {
         width  = (width  % 2 !== 0)  ? width - 1  : width;
         height = (height % 2 !== 0)  ? height - 1 : height;
 
-        let x  = width  * cell.getOrigin().getX();
-        let y  = height * cell.getOrigin().getY();
+        let x  = width  * cell.getIndex().getX();
+        let y  = height * cell.getIndex().getY();
 
-        if(cell.getOrigin().getY() % 2 !== 0) {
+        if(cell.getIndex().getY() % 2 !== 0) {
             x += width / 2;
         }
 
-        y -= (cell.getOrigin().getY() * (height / 2)) ;
+        y -= (cell.getIndex().getY() * (height / 2)) ;
 
         return new Vector2D(x, y);
     }
