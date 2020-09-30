@@ -3,20 +3,9 @@ import {Vector2D} from "@inwebo/vector";
 export default class Cell {
 
     /**
-     * @param {Vector2D} origin
-     */
-    setOrigin(origin) {
-        this._origin = origin;
-    }
-
-    /**
-     *
+     * Cartesian coordinates
      * @return {Vector2D}
      */
-    getOrigin() {
-        return this._origin;
-    }
-
     getIndex() {
         return this._index;
     }
@@ -42,22 +31,37 @@ export default class Cell {
         this._hasRoad = boolean;
     }
 
+    /**
+     * @return {boolean}
+     */
     hasRoad() {
         return this._hasRoad;
     }
 
+    /**
+     * @return {boolean}
+     */
     isEvenRow() {
         return this._index.getY() % 2 === 0;
     }
 
+    /**
+     * @return {boolean}
+     */
     isOddRow() {
         return !this.isEvenRow();
     }
 
+    /**
+     * @return {boolean}
+     */
     isEvenCol() {
         return this._index.getX() % 2 === 0;
     }
 
+    /**
+     * @return {boolean}
+     */
     isOddCol() {
         return !this.isEvenCol();
     }
