@@ -19,7 +19,7 @@ npm install @inwebo/sim-city-2000.js
 
 ## Demo
 
-See [index.html](https://inwebo.github.io/sim-city-2000.js/), [demo.js](docs/js/demo.js), [index.html](docs/index.html).
+See [index.html](https://inwebo.github.io/sim-city-2000.js/), [demo.js](./docs/assets/js/demo.js), [index.html](./docs/index.html).
 
 ## Web
 
@@ -32,3 +32,5 @@ See [index.html](https://inwebo.github.io/sim-city-2000.js/), [demo.js](docs/js/
 * [Random scattering](https://www.gamasutra.com/view/feature/130071/random_scattering_creating_.php?page=2)
 * [Isometric world](https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511)
 * [Cheap & easy isometric](https://gamedevelopment.tutsplus.com/tutorials/quick-tip-cheap-n-easy-isometric-levels--gamedev-6282)
+* [A Bitwise Method For Applying Tilemaps](https://web.archive.org/web/20150906102436/http://www.saltgames.com/2010/a-bitwise-method-for-applying-tilemaps/)
+* [Autotile](https://kidscancode.org/godot_recipes/2d/autotile_intro/)
