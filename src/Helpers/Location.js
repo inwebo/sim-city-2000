@@ -19,6 +19,9 @@ export default class Location {
         this._northEast = this._cellLocation.getNorthEast();
     }
 
+    /**
+     * @return {Map}
+     */
     getMap() {
         if(this._map === null) {
             this._map = new Map([
