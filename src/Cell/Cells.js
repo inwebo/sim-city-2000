@@ -61,8 +61,8 @@ export default class Cells {
     }
 
     /**
-     * @param {int} x
-     * @param {int} y
+     * @param {int} x col
+     * @param {int} y row
      * @return {Cell|boolean}
      */
     getCell(x, y) {
