@@ -1,5 +1,5 @@
 # Sim city 2000 scene
-## [See the doc !](https://github.com/inwebo/sim-city-2000/blob/develop/docs/index.html)
+## [See the doc !](https://inwebo.github.io/sim-city-2000/)
 
 [javascript](https://github.com/topics/javascript), [es6-javascript](https://github.com/topics/es6-javascript), [es6](https://github.com/topics/es6), [sprite](https://github.com/topics/sprite), [spritesheet](https://github.com/topics/spritesheet)
 
