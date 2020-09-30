@@ -1,4 +1,4 @@
-import {SpriteMap}       from '@inwebo/sprite.js' ;
+import {RenderSprite, SpriteMap} from '@inwebo/sprite.js' ;
 import {RenderOffScreen} from '@inwebo/render.js';
 import {AssetsLoader}    from '@inwebo/assetsloader.js'
 import {Vector2D}        from '@inwebo/vector';
@@ -9,6 +9,7 @@ import rand from "../../../src/Helpers/Rand.js";
 import Roads from "../../../src/World/Roads";
 import RoadsRender from "../../../src/Renderer/RoadsRender";
 import Cells from "../../../src/Cell/Cells";
+import SpriteRender from "../../../src/Renderer/SpriteRender";
 
 window.addEventListener("DOMContentLoaded", (event) => {
     const worldCanvas      = document.getElementById('world');
@@ -34,7 +35,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsOffScreenRender = new RenderOffScreen(worldCanvas, commercialsSheet);
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
 
-            const size = new Vector2D(22,39);
+            const size         = new Vector2D(5,15);
 
             const cells = new Cells(size);
             const chunk                = new Chunk(size, cells);
@@ -43,8 +44,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const roads       = new Roads(size, cells);
             const roadsRender = new RoadsRender(worldCanvas);
 
+            const spriteRender = new SpriteRender(worldCanvas);
+
+
             chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
             roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
+
+            spriteRender.draw(commercialsSpriteMap.get('commercial-10'), cells.getCell(1,1));
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), cells.getCell(1,1));
 
         })
         .catch((err) => {
