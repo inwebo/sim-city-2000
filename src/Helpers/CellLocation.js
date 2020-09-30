@@ -1,6 +1,5 @@
 import Cell from '../Cell/Cell';
 import {Vector2D} from "@inwebo/vector";
-import Location from "./Location";
 
 /**
  * Get isometric coordinates from cell
@@ -12,11 +11,28 @@ export default class CellLocation {
     constructor(cell) {
         this._cell     = cell;
         this._index    = cell.getIndex();
-        this._location = new Location(cell);
+        this._map      = null;
     }
 
-    getLocations() {
-        return this._location.getMap();
+    /**
+     * @return {Map}
+     */
+    getMap() {
+        if(this._map === null) {
+            this._map = new Map([
+                ['N',  this.getNorth()],
+                ['NW', this.getNorthWest()],
+                ['W',  this.getWest()],
+                ['SW', this.getSouthWest()],
+                ['S',  this.getSouth()],
+                ['SE', this.getSouthEast()],
+                ['E',  this.getEast()],
+                ['NE', this.getNorthEast()],
+            ]);
+            return this._map;
+        } else {
+            return this._map;
+        }
     }
 
     getNorth() {
