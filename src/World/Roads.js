@@ -2,7 +2,6 @@ import {Chunk} from "../index";
 import rand from "../Helpers/Rand";
 import {Vector2D} from "@inwebo/vector";
 import CellLocation from "../Helpers/CellLocation";
-import Cell from "../Cell/Cell";
 
 export default class Roads extends Chunk {
 
@@ -12,11 +11,10 @@ export default class Roads extends Chunk {
     }
 
     _generateRoad() {
-
         let randX = rand(0, this.getDimensions().getX());
         let randY = rand(0, this.getDimensions().getY());
 
-        const segmentLength = 330;
+        const segmentLength = 300;
 
         let walker = new Vector2D(randX,0);
 
