@@ -2,16 +2,16 @@ import Cell from '../Cell/Cell';
 import {Vector2D} from "@inwebo/vector";
 
 /**
- * Get isometric coordinates from cell
+ * Get isometric coordinates from cartesian coordinates
  */
 export default class CellLocation {
     /**
      * @param {Cell} cell
      */
     constructor(cell) {
-        this._cell     = cell;
-        this._index    = cell.getIndex();
-        this._map      = null;
+        this._cell  = cell;
+        this._index = cell.getIndex();
+        this._map   = null;
     }
 
     /**
@@ -29,74 +29,76 @@ export default class CellLocation {
                 ['E',  this.getEast()],
                 ['NE', this.getNorthEast()],
             ]);
-            return this._map;
-        } else {
-            return this._map;
         }
+
+        return this._map;
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getNorth() {
         return Vector2D.add(this._index, new Vector2D(0, -2));
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getNorthEast() {
-        let position = null;
-
-        if(this._cell.isEvenRow()) {
-            position = Vector2D.add(this._index, new Vector2D(0, -1));
-        } else {
-            position = Vector2D.add(this._index, new Vector2D(1, -1));
-        }
-
-        return position;
+        return (this._cell.isEvenRow()) ?
+            Vector2D.add(this._index, new Vector2D(0, -1)) :
+            Vector2D.add(this._index, new Vector2D(1, -1))
+            ;
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getEast() {
         return Vector2D.add(this._index, new Vector2D(1, 0));
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getSouthEast() {
-        let position = null;
-
-        if(this._cell.isEvenRow()) {
-            position = Vector2D.add(this._index, new Vector2D(0, 1));
-        } else {
-            position = Vector2D.add(this._index, new Vector2D(1, 1));
-        }
-
-        return position;
+        return (this._cell.isEvenRow()) ?
+            Vector2D.add(this._index, new Vector2D(0, 1)) :
+            Vector2D.add(this._index, new Vector2D(1, 1))
+            ;
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getSouth() {
         return Vector2D.add(this._index, new Vector2D(0, 2));
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getSouthWest() {
-        let position = new Vector2D();
-
-        if(this._cell.isEvenRow()) {
-            position = Vector2D.add(this._index, new Vector2D(-1, 1));
-        } else {
-            position = Vector2D.add(this._index, new Vector2D(0, 1));
-        }
-
-        return position;
+        return (this._cell.isEvenRow()) ?
+            Vector2D.add(this._index, new Vector2D(-1, 1)) :
+            Vector2D.add(this._index, new Vector2D(0, 1))
+            ;
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getWest() {
         return Vector2D.add(this._index, new Vector2D(-1, 0));
     }
 
+    /**
+     * @return {Vector2D}
+     */
     getNorthWest() {
-        let position = null;
-
-        if(this._cell.isEvenRow()) {
-            position = Vector2D.add(this._index, new Vector2D(-1, -1));
-        } else {
-            position = Vector2D.add(this._index, new Vector2D(0, -1));
-        }
-
-        return position;
+        return (this._cell.isEvenRow()) ?
+            Vector2D.add(this._index, new Vector2D(-1, -1)) :
+            Vector2D.add(this._index, new Vector2D(0, -1))
+            ;
     }
-
 }
