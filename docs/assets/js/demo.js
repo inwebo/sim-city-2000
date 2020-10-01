@@ -47,12 +47,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const spriteRender = new SpriteRender(worldCanvas);
 
 
-            // chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
+            chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
             // roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
 
-            spriteRender.draw(commercialsSpriteMap.get('commercial-10'), cells.getCell(0,0));
-            spriteRender.draw(commercialsSpriteMap.get('commercial-15'), cells.getCell(2,1));
-            spriteRender.draw(commercialsSpriteMap.get('commercial-18'), cells.getCell(5,5));
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-10'), cells.getCell(0,0));
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-15'), cells.getCell(2,1));
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-18'), cells.getCell(5,5));
             // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), cells.getCell(1,1));
 
         })
