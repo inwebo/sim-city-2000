@@ -1,38 +1,7 @@
-import Cell from '../Cell/Cell';
 import {Vector2D} from "@inwebo/vector";
+import Abstract from "./Abstract";
 
-/**
- * Get isometric coordinates from cartesian coordinates
- */
-export default class CellLocation {
-    /**
-     * @param {Cell} cell
-     */
-    constructor(cell) {
-        this._cell  = cell;
-        this._index = cell.getIndex();
-        this._map   = null;
-    }
-
-    /**
-     * @return {Map}
-     */
-    getMap() {
-        if(this._map === null) {
-            this._map = new Map([
-                ['N',  this.getNorth()],
-                ['NW', this.getNorthWest()],
-                ['W',  this.getWest()],
-                ['SW', this.getSouthWest()],
-                ['S',  this.getSouth()],
-                ['SE', this.getSouthEast()],
-                ['E',  this.getEast()],
-                ['NE', this.getNorthEast()],
-            ]);
-        }
-
-        return this._map;
-    }
+export default class Isometric extends Abstract {
 
     /**
      * @return {Vector2D}

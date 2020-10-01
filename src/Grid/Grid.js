@@ -1,7 +1,10 @@
 import Cell from "./Cell";
 import {Vector2D} from "@inwebo/vector";
 
-export default class Cells {
+/**
+ *
+ */
+export default class Grid {
 
     /**
      * @param {Vector2D} dimensions Array of rows (y) with cols (x) dimensions.
