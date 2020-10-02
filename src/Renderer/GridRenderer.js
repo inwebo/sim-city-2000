@@ -1,3 +1,3 @@
-import AbstractRenderer from "./AbstractRenderer";
+import RendererAbstract from "./RendererAbstract";
 
-export default class GridRenderer extends AbstractRenderer {}
+export default class GridRenderer extends RendererAbstract {}

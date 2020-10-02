@@ -1,6 +1,6 @@
-import AbstractRenderer from "./AbstractRenderer";
+import RendererAbstract from "./RendererAbstract";
 
-export default class RoadsRenderer extends AbstractRenderer {
+export default class RoadsRenderer extends RendererAbstract {
     /**
      * @inheritDoc
      */
