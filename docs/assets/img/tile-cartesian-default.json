@@ -1,6 +1,6 @@
 {
   "tiles": {
-    "tiles": {
+    "tile-1": {
       "origin": [0, 0],
       "dimensions": [16, 16],
       "transparency": null
