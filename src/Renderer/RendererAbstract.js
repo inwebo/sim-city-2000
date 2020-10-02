@@ -4,7 +4,7 @@ import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
 import {Sprite} from "@inwebo/sprite.js";
 
-export default class AbstractRenderer extends Renderer2D {
+export default class RendererAbstract extends Renderer2D {
 
     /**
      * @param {Chunk} chunk
@@ -12,6 +12,22 @@ export default class AbstractRenderer extends Renderer2D {
      */
     getGenerator(chunk) {
         return chunk.getCells().getGenerator();
+    }
+
+    /**
+     * @returns {CoordinatesAbstract}
+     */
+    getCoordinatesAdapter() {
+        return this._coordinateAdapter;
+    }
+
+    /**
+     * @param {HTMLCanvasElement|HTMLElement|OffscreenCanvas} canvas
+     * @param {CoordinatesAbstract} coordinatesAdapter
+     */
+    constructor(canvas, coordinatesAdapter) {
+        super(canvas);
+        this._coordinateAdapter = coordinatesAdapter;
     }
 
     /**
