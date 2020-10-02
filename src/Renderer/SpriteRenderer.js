@@ -1,11 +1,10 @@
-import AbstractRender from "./AbstractRender";
-import {Sprite} from "@inwebo/sprite.js";
-import Cell from "../Cell/Cell";
+import AbstractRenderer from "./AbstractRenderer";
+import Cell from "../Grid/Cell";
 
 
-export default class SpriteRender extends AbstractRender {
+export default class SpriteRenderer extends AbstractRenderer {
     /**
-     * @param {Sprite} sprite
+     * @param {SpriteRenderer} sprite
      * @param {Cell}   position
      * @private
      */

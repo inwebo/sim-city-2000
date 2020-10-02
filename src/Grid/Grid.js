@@ -1,7 +1,10 @@
 import Cell from "./Cell";
 import {Vector2D} from "@inwebo/vector";
 
-export default class Cells {
+/**
+ *
+ */
+export default class Grid {
 
     /**
      * @param {Vector2D} dimensions Array of rows (y) with cols (x) dimensions.
@@ -11,15 +14,24 @@ export default class Cells {
         const rows = new Array(dimensions.getY()).fill(null);
         Object.seal(rows);
         for(let i = 0; i < rows.length; i++) {
+
             let cols = [];
+
             for(let j = 0; j < dimensions.getX(); j++) {
-                cols.push(new Cell(new Vector2D(j, i), new Vector2D(j, i)));
+                cols.push(new Cell(new Vector2D(j, i)));
             }
             Object.seal(cols);
             rows[i] = cols;
         }
 
         this._rows = rows;
+    }
+
+    /**
+     * @return {Vector2D}
+     */
+    getGridSize() {
+        return this._dimensions;
     }
 
     /**

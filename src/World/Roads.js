@@ -1,7 +1,7 @@
 import {Chunk} from "../index";
 import rand from "../Helpers/Rand";
 import {Vector2D} from "@inwebo/vector";
-import CellLocation from "../Helpers/CellLocation";
+import Cartesian from "../Coordinates/Cartesian";
 
 export default class Roads extends Chunk {
 
@@ -26,7 +26,7 @@ export default class Roads extends Chunk {
                 break;
             }
 
-            const cellLocation = new CellLocation(cell);
+            const cellLocation = new Cartesian(cell);
 
             this
                 .getCells()
