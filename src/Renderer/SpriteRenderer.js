@@ -1,10 +1,10 @@
-import Abstract from "./Abstract";
+import AbstractRenderer from "./AbstractRenderer";
 import Cell from "../Grid/Cell";
 
 
-export default class Sprite extends Abstract {
+export default class SpriteRenderer extends AbstractRenderer {
     /**
-     * @param {Sprite} sprite
+     * @param {SpriteRenderer} sprite
      * @param {Cell}   position
      * @private
      */

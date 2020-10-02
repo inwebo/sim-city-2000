@@ -4,7 +4,7 @@ import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
 import {Sprite} from "@inwebo/sprite.js";
 
-export default class Abstract extends Renderer2D {
+export default class AbstractRenderer extends Renderer2D {
 
     /**
      * @param {Chunk} chunk
@@ -15,7 +15,7 @@ export default class Abstract extends Renderer2D {
     }
 
     /**
-     * Convert Grid index [x,y] to canvas coordinate [x+n, y+m]
+     * Convert GridRenderer index [x,y] to canvas coordinate [x+n, y+m]
      * @param {Cell}        cell cell.getIndex()
      * @param {ImageBitmap} imageBitmap
      *
