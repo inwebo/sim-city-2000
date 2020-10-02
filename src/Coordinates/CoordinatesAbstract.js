@@ -1,13 +1,12 @@
 import {Vector2D} from "@inwebo/vector";
 
-export default class Abstract {
+export default class CoordinatesAbstract {
     /**
-     * @param {CellAbstract} cellAbstract
+     * @param {Vector2D} vector
      */
-    constructor(cellAbstract) {
-        this._cell  = cellAbstract;
-        this._index = cellAbstract.getIndex();
-        this._map   = null;
+    constructor(vector) {
+        this._vector = vector;
+        this._map    = null;
     }
 
     /**
@@ -20,6 +19,7 @@ export default class Abstract {
                 ['NW', this.getNorthWest()],
                 ['W',  this.getWest()],
                 ['SW', this.getSouthWest()],
+                ['C',  this.getCenter()],
                 ['S',  this.getSouth()],
                 ['SE', this.getSouthEast()],
                 ['E',  this.getEast()],
@@ -28,6 +28,13 @@ export default class Abstract {
         }
 
         return this._map;
+    }
+
+    /**
+     * @returns {Vector2D}
+     */
+    getCenter() {
+        return this._vector;
     }
 
     /**
