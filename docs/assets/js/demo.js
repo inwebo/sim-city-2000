@@ -1,29 +1,29 @@
 import {RenderSprite, SpriteMap} from '@inwebo/sprite.js' ;
-import {RenderOffScreen} from '@inwebo/render.js';
-import {AssetsLoader}    from '@inwebo/assetsloader.js'
-import {Vector2D}        from '@inwebo/vector';
-
-import Chunk from "../../../src/Chunk/Chunk";
+import {RenderOffScreen}         from '@inwebo/render.js';
+import {AssetsLoader}            from '@inwebo/assetsloader.js'
+import {Vector2D}                from '@inwebo/vector';
+import GridRenderer              from "../../../src/Renderer/GridRenderer";
+import Chunk                     from "../../../src/Chunk/Chunk";
 import Grid from "../../../src/Grid/Grid";
-import Sprite from "../../../src/Renderer/Sprite";
 
 window.addEventListener("DOMContentLoaded", (event) => {
     const worldCanvas      = document.getElementById('world');
 
-    const tilesSheet         = AssetsLoader.image('assets/img/tiles.png');
-    const tilesJSONMap       = AssetsLoader.json("assets/img/tiles.json");
+    // const tilesSheet         = AssetsLoader.image('assets/img/tiles.png');
+    // const tilesJSONMap       = AssetsLoader.json("assets/img/tiles.json");
 
-    const commercialsSheet   = AssetsLoader.image('assets/img/commercials.png');
-    const commercialsJSONMap = AssetsLoader.json('assets/img/commercials.json');
+    // const commercialsSheet   = AssetsLoader.image('assets/img/commercials.png');
+    // const commercialsJSONMap = AssetsLoader.json('assets/img/commercials.json');
 
-    const infraSheet   = AssetsLoader.image('assets/img/infrastructures.png');
-    const infraJSONMap = AssetsLoader.json('assets/img/infrastructures.json');
+    // const infraSheet   = AssetsLoader.image('assets/img/infrastructures.png');
+    // const infraJSONMap = AssetsLoader.json('assets/img/infrastructures.json');
 
-    // const tilesSheet   = AssetsLoader.image('assets/img/tile-cartesian-default.png');
-    // const tilesJSONMap = AssetsLoader.json('assets/img/tile-cartesian-default.json');
+    const tilesSheet   = AssetsLoader.image('assets/img/tile-cartesian-default.png');
+    const tilesJSONMap = AssetsLoader.json('assets/img/tile-cartesian-default.json');
 
-    Promise.all([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap, infraSheet, infraJSONMap])
-        .then(([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap, infraSheet, infraJSONMap]) => {
+    // Promise.all([tilesSheet, tilesJSONMap, commercialsSheet, commercialsJSONMap, infraSheet, infraJSONMap])
+    Promise.all([tilesSheet, tilesJSONMap])
+        .then(([tilesSheet, tilesJSONMap]) => {
             // region city
             // const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
             // const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
@@ -36,14 +36,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
             //
             // const size         = new Vector2D(10,10);
             //
-            // const cells = new Grid(size);
+            // const cells = new GridRenderer(size);
             // const chunk                = new Chunk(size, cells);
-            // const chunkRender          = new Grid(worldCanvas);
+            // const chunkRender          = new GridRenderer(worldCanvas);
             //
-            // // const roads       = new Roads(size, cells);
-            // // const roadsRender = new Roads(worldCanvas);
+            // // const roads       = new RoadsRenderer(size, cells);
+            // // const roadsRender = new RoadsRenderer(worldCanvas);
             //
-            // const spriteRender = new Sprite(worldCanvas);
+            // const spriteRender = new SpriteRenderer(worldCanvas);
             //
             // chunkRender.draw(chunk, tilesSpriteMap.get('tiles-1'));
             // // roadsRender.draw(roads, infraSpriteMap.get('right-to-left'));
@@ -55,8 +55,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
             // endregion
 
             // region
-            // const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
-            // const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
+            const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
+            const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
+            const size                 = new Vector2D(10,10);
+            const cells                = new Grid(size);
+            const chunk                = new Chunk(size, cells);
+
+            const gridRenderer = new GridRenderer(worldCanvas);
+            gridRenderer.draw(chunk, tilesSpriteMap.get('tile-1'));
             // endregion
 
         })
