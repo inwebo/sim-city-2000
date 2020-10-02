@@ -42,6 +42,6 @@ export default class Cell extends CellAbstract {
         super(index);
 
         this._buildable = buildable || false;
-        this._hasRoad   = hasRoad || false;
+        this._hasRoad   = hasRoad   || false;
     }
 }
