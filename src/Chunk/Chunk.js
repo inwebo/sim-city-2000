@@ -1,6 +1,6 @@
 import {Vector2D} from "@inwebo/vector";
-import Cell from "../Cell/Cell";
-import Cells from "../Cell/Cells";
+import Cell from "../Grid/Cell";
+import Grid from "../Grid/Grid";
 
 export default class Chunk {
 
@@ -12,6 +12,8 @@ export default class Chunk {
     }
 
     /**
+     * Canvas origin
+     *
      * @return {Vector2D}
      */
     getOrigin() {
@@ -19,21 +21,20 @@ export default class Chunk {
     }
 
     /**
-     *
-     * @return {Cells}
+     * @return {Grid}
      */
     getCells() {
-        return this._cells;
+        return this._grid;
     }
 
     /**
      * @param {Vector2D} dimensions
-     * @param {Cells} cells
+     * @param {Grid} grid canvas origin
      * @param {Vector2D|null} origin
      */
-    constructor(dimensions, cells, origin = null) {
+    constructor(dimensions, grid, origin = null) {
         this._dimensions = dimensions;
-        this._cells      = cells;
+        this._grid       = grid;
         this._origin     = origin || new Vector2D();
     }
 
@@ -54,7 +55,7 @@ export default class Chunk {
             for (let j = 1; j <= dimension; j++) {
 
                 if((startOrigin.getX() === x && startOrigin.getY() === y) === false) {
-                    buffer.push(this._cells.getCell(startOrigin.getX(), startOrigin.getY()));
+                    buffer.push(this._grid.getCell(startOrigin.getX(), startOrigin.getY()));
                 }
 
                 if(startOrigin.getY() >= y + size) {

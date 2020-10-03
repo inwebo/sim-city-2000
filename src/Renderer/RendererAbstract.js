@@ -4,25 +4,45 @@ import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
 import {Sprite} from "@inwebo/sprite.js";
 
-export default class AbstractRender extends Renderer2D {
+export default class RendererAbstract extends Renderer2D {
 
     /**
      * @param {Chunk} chunk
      * @return {Generator<Cell>}
      */
     getGenerator(chunk) {
-        return  chunk.getCells().getGenerator();
+        return chunk.getCells().getGenerator();
     }
 
     /**
-     * Convert Cell index [x,y] to canvas coordinate [x+n, y+m]
+     * @returns {CoordinatesAbstract}
+     */
+    getCoordinatesAdapter() {
+        return this._coordinateAdapter;
+    }
+
+    /**
+     * @param {HTMLCanvasElement|HTMLElement|OffscreenCanvas} canvas
+     * @param {CoordinatesAbstract} coordinatesAdapter
+     */
+    constructor(canvas, coordinatesAdapter) {
+        super(canvas);
+        this._coordinateAdapter = coordinatesAdapter;
+    }
+
+    /**
+     * Convert GridRenderer index [x,y] to canvas coordinate [x+n, y+m]
      * @param {Cell}        cell cell.getIndex()
      * @param {ImageBitmap} imageBitmap
      *
-     * @return {Vector2D}
+     * @return {Vector2D|boolean}
      */
     cellToCanvasCoordinates(cell, imageBitmap) {
-        return CellToCanvas.toCanvas(cell, imageBitmap.width, imageBitmap.height);
+        if(cell !== false) {
+            return CellToCanvas.toCanvas(cell, imageBitmap.width, imageBitmap.height);
+        }
+
+        return false;
     }
 
     /**
