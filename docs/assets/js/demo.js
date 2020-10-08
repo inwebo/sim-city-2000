@@ -4,8 +4,8 @@ import {AssetsLoader}            from '@inwebo/assetsloader.js'
 import {Vector2D}                from '@inwebo/vector';
 import GridRenderer              from "../../../src/Renderer/GridRenderer";
 import Chunk                     from "../../../src/Chunk/Chunk";
-import Grid from "../../../src/Grid/Grid";
-import Cartesian from "../../../src/Coordinates/Cartesian";
+import {Grid}                    from "@inwebo/grid.js";
+
 
 window.addEventListener("DOMContentLoaded", (event) => {
     const worldCanvas      = document.getElementById('world');

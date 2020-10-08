@@ -3,6 +3,7 @@ import {Vector2D} from "@inwebo/vector";
 import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
 import {Sprite} from "@inwebo/sprite.js";
+import {CoordinatesAbstract, Cell} from "@inwebo/grid.js";
 
 export default class RendererAbstract extends Renderer2D {
 

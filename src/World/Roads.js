@@ -1,7 +1,7 @@
 import {Chunk} from "../index";
 import rand from "../Helpers/Rand";
 import {Vector2D} from "@inwebo/vector";
-import Cartesian from "../Coordinates/Cartesian";
+import {Cartesian} from "@inwebo/grid.js";
 
 export default class Roads extends Chunk {
 
