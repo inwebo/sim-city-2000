@@ -26,7 +26,9 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "@babel/preset-env": "^7.0.0",
+    "lodash": "^4.17.20",
     "serialize-javascript": ">=3.1.0",
+    "serve": "^11.3.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
@@ -36,9 +38,7 @@
     "@inwebo/grid.js": "^0.0",
     "@inwebo/render.js": "^0.0",
     "@inwebo/sprite.js": "^0.0",
-    "@inwebo/vector": "^0.0",
-    "lodash": "^4.17.20",
-    "serve": "^11.3.2"
+    "@inwebo/vector": "^0.0"
   },
   "bugs": {
     "url": "https://github.com/inwebo/sim-city-2000/issues"
