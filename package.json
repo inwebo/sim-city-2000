@@ -35,7 +35,7 @@
   "dependencies": {
     "@inwebo/assetsloader.js": "^0.0",
     "@inwebo/graph.js": "^0.0",
-    "@inwebo/grid.js": "^0.0",
+    "@inwebo/grid.js": "^0.1",
     "@inwebo/render.js": "^0.0",
     "@inwebo/sprite.js": "^0.0",
     "@inwebo/vector": "^0.0"
