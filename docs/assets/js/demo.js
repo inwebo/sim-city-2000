@@ -3,7 +3,7 @@ import {RenderOffScreen} from '@inwebo/render.js';
 import {AssetsLoader} from '@inwebo/assetsloader.js'
 import {Vector2D} from '@inwebo/vector';
 import GridRenderer from "../../../src/Renderer/GridRenderer";
-import Chunk from "../../../src/Chunk/Chunk";
+import SpriteRenderer from "../../../src/Renderer/SpriteRenderer";
 
 import Grid from "../../../src/Grid/Grid";
 import Cell from "../../../src/Grid/Cell";
@@ -21,14 +21,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const infraTilesSheet   = AssetsLoader.image('assets/img/infrastructures.png');
     const infraTilesJSONMap = AssetsLoader.json('assets/img/infrastructures.json');
 
-    Promise.all([tilesSheet, tilesJSONMap, infraTilesSheet, infraTilesJSONMap])
-        .then(([tilesSheet, tilesJSONMap, infraTilesSheet, infraTilesJSONMap]) => {
+    const commercialsSheet   = AssetsLoader.image('assets/img/commercials.png');
+    const commercialsJSONMap = AssetsLoader.json('assets/img/commercials.json');
+
+
+
+    Promise.all([tilesSheet, tilesJSONMap, infraTilesSheet, infraTilesJSONMap, commercialsSheet, commercialsJSONMap])
+        .then(([tilesSheet, tilesJSONMap, infraTilesSheet, infraTilesJSONMap, commercialsSheet, commercialsJSONMap]) => {
             // region
 
             const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
             const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
 
-            const size                 = new Vector2D(10,10);
+            const size                 = new Vector2D(9,9);
 
             const grid = new Grid(size, null, ([x, y]) => {
                 return new Cell(new Vector2D(x, y));
@@ -44,18 +49,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 populateGrid(grid, start);
             }
 
-            console.log(conf)
-            console.log(grid.getRows())
+            // console.log(conf)
+            // console.log(grid.getRows())
 
             const gridRenderer = new GridRenderer(worldCanvas, new Cartesian());
             gridRenderer.draw(grid, tilesSpriteMap.get('tiles-1'));
 
             const buildable = grid.getCellByType();
-            for (const b of buildable) {
-                console.log(b);
-            }
-
             // endregion
+
+            const commercialsOffScreenRender = new RenderOffScreen(worldCanvas, commercialsSheet);
+            const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
+            const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
+
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(0,0));
+            spriteRender.draw(commercialsSpriteMap.get('commercial-20'), grid.getCell(0,0));
 
         })
         .catch((err) => {
