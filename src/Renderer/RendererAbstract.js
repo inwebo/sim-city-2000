@@ -74,18 +74,18 @@ export default class RendererAbstract extends Renderer2D {
     /**
      * Main loop cell function drawing with CanvasRenderingContext2D.drawImage()
      *
-     * @param {Chunk} chunk
+     * @param {Grid} chunk
      * @param {Sprite} sprite
      * @see https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/drawImage
      * @private
      */
-    _draw([chunk, sprite]) {
+    _draw([grid, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((imageBitmap) => {
                 /**
                  * @type {Generator<Cell>}
                  */
-                const cells = this.getGenerator(chunk);
+                const cells = grid.getGenerator();
 
                 for (let cell of cells) {
                     /**
