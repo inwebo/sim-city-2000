@@ -58,7 +58,7 @@ export default class RendererAbstract extends Renderer2D {
 
     /**
      * Draw imgData to canvas's coordinate offset
-     *
+     * @todo A revoir
      * @param {ImageBitmap}   imageBitmap
      * @param {Vector2D|null} offset  canvas's offset coordinate, default no offset
      */

@@ -1,10 +1,12 @@
 import RendererAbstract from "./RendererAbstract";
 import Cell from "../Grid/Cell";
-
+import {Vector2D} from "@inwebo/vector";
+import SpriteToCanvas from "../Helpers/SpriteToCanvas";
+import {Sprite} from "@inwebo/sprite.js";
 
 export default class SpriteRenderer extends RendererAbstract {
     /**
-     * @param {SpriteRenderer} sprite
+     * @param {Sprite} sprite
      * @param {Cell}   position
      * @private
      */
@@ -12,7 +14,15 @@ export default class SpriteRenderer extends RendererAbstract {
         createImageBitmap(sprite.imgData)
             .then((imageBitmap) => {
 
-                const offset = this.cellToCanvasCoordinates(cell, imageBitmap);
+                // const offset = this.cellToCanvasCoordinates(cell, imageBitmap);
+                //
+                // console.log(offset)
+
+                const offSetCalculator = new SpriteToCanvas(sprite, new Vector2D(23, 32));
+
+                console.log(sprite);
+
+                const offset = new Vector2D(0, -58);
 
                 if (this.isDrawable(cell)) {
                     this.drawImageBitmap(imageBitmap, offset);
