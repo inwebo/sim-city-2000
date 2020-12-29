@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
 
             // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(0,0));
-            spriteRender.draw(commercialsSpriteMap.get('commercial-20'), grid.getCell(0,0));
+            spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(0,0));
 
         })
         .catch((err) => {
