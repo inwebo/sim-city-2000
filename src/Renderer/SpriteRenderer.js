@@ -20,9 +20,13 @@ export default class SpriteRenderer extends RendererAbstract {
 
                 const offSetCalculator = new SpriteToCanvas(sprite, new Vector2D(23, 32));
 
-                console.log(sprite);
+                console.log(cell, sprite);
 
-                const offset = new Vector2D(0, -58);
+                // const offset = new Vector2D(0, -58);
+                const offset = new Vector2D(0, 0);
+
+
+
 
                 if (this.isDrawable(cell)) {
                     this.drawImageBitmap(imageBitmap, offset);
