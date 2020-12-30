@@ -40,7 +40,6 @@ export default class RendererAbstract extends Renderer2D {
      */
     cellToCanvasCoordinates(cell, imageBitmap) {
         if(cell !== false) {
-            console.log(imageBitmap)
             return CellToCanvas.toCanvas(cell, imageBitmap.width, imageBitmap.height);
         }
 
