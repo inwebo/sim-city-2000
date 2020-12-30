@@ -62,13 +62,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
             const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
 
-            spriteRender.draw(commercialsSpriteMap.get('commercial-2'), grid.getCell(0,0));
-            // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(0,0));
-            // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(5,5));
+            grid.getCell(3,5).setSize(1);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(3,5));
+
+            grid.getCell(0,0).setSize(2);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-15'), grid.getCell(0,0));
+            grid.getCell(2,0).setSize(2);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-12'), grid.getCell(2,0));
+            grid.getCell(6,6).setSize(2);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-13'), grid.getCell(6,6));
+
+            grid.getCell(6,0).setSize(3);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-20'), grid.getCell(6,0));
 
             for(const building of buildable) {
-                console.log(building);
-                // spriteRender.draw(commercialsSpriteMap.get('commercial-2'), building);
+                // if(building.getSize() === 1) {
+                //     spriteRender.draw(commercialsSpriteMap.get('commercial-10'), building);
+                // }
+                //
+                // if(building.getSize() === 2) {
+                //     spriteRender.draw(commercialsSpriteMap.get('commercial-10'), building);
+                // }
+                //
+                // if(building.getSize() === 3) {
+                //     spriteRender.draw(commercialsSpriteMap.get('commercial-20'), building);
+                // }
             }
 
         })
