@@ -62,8 +62,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
             const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
 
+            spriteRender.draw(commercialsSpriteMap.get('commercial-2'), grid.getCell(0,0));
             // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(0,0));
-            spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(0,0));
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(5,5));
+
+            for(const building of buildable) {
+                console.log(building);
+                // spriteRender.draw(commercialsSpriteMap.get('commercial-2'), building);
+            }
 
         })
         .catch((err) => {
