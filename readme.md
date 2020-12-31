@@ -41,3 +41,9 @@ https://stackoverflow.com/questions/9018988/how-to-iterate-from-back-to-front-in
 https://stackoverflow.com/questions/19344623/diamond-isometric-tile-picking
 https://stackoverflow.com/questions/35885029/improving-performance-of-click-detection-on-a-staggered-column-isometric-grid/35917976#35917976
 https://stackoverflow.com/questions/46104610/isometric-tiles-drawing-and-picking-java?rq=1
+http://www.opencity.info/
+http://pocketcity.sourceforge.net/
+https://www.vertabelo.com/blog/build-your-own-city-an-open-ended-building-game-data-model/
+https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+
+
