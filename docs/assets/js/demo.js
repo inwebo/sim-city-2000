@@ -39,6 +39,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 return new Cell(new Vector2D(x, y));
             });
 
+            const cellDimensions = new Vector2D(32, 16);
+
+
+
+            // region populate
             while (grid.assertCells((cell) => {
                 return cell.getType() === null;
             }) !== false) {
@@ -48,34 +53,40 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
                 populateGrid(grid, start);
             }
-
-            // console.log(conf)
-            // console.log(grid.getRows())
+            // endregion
 
             const gridRenderer = new GridRenderer(worldCanvas, new Cartesian());
+
+
+            const viewOrigin = new Vector2D(212, 356/2);
+
+            console.log(viewOrigin);
+
+            gridRenderer.setViewOrigin(viewOrigin);
+            gridRenderer.setCellDimensions(cellDimensions);
             gridRenderer.draw(grid, tilesSpriteMap.get('tiles-1'));
 
-            const buildable = grid.getCellByType();
-            // endregion
+
+
+            // region merdasse
+            // const buildable = grid.getCellByType();
 
             const commercialsOffScreenRender = new RenderOffScreen(worldCanvas, commercialsSheet);
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
             const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
 
-            grid.getCell(3,5).setSize(1);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-1'), grid.getCell(3,5));
+            const c = grid.getCell(0,0);
+            c.setSize(1);
 
-            grid.getCell(0,0).setSize(2);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-15'), grid.getCell(0,0));
-            grid.getCell(2,0).setSize(2);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-12'), grid.getCell(2,0));
-            grid.getCell(6,6).setSize(2);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-13'), grid.getCell(6,6));
+            // grid.getCell(0,0).setSize(2);
+            spriteRender.setCellDimensions(cellDimensions);
+            spriteRender.setViewOrigin(viewOrigin);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-5'), c);
 
-            grid.getCell(6,0).setSize(3);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-20'), grid.getCell(6,0));
 
-            for(const building of buildable) {
+            // console.log(commercialsSpriteMap.get('commercial-15'));
+
+            // for(const building of buildable) {
                 // if(building.getSize() === 1) {
                 //     spriteRender.draw(commercialsSpriteMap.get('commercial-10'), building);
                 // }
@@ -87,8 +98,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 // if(building.getSize() === 3) {
                 //     spriteRender.draw(commercialsSpriteMap.get('commercial-20'), building);
                 // }
-            }
-
+            // }
+            // endregion
         })
         .catch((err) => {
             console.log(err);
