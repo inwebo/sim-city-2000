@@ -14,26 +14,26 @@ export default class GridRenderer extends RendererAbstract {
      * @param {Vector2D} vector
      */
     setCellDimensions(vector) {
-        this._cellToBitmapDimensions = new Vector2D(vector.getX()/2, vector.getY()/2);
+        this._cellToBitmapDimensions = new Vector2D(vector.getX(), vector.getY());
     }
 
     coordinatesToCanvas(cell, sprite = null) {
-        let x = (cell.getIndex().getX() - cell.getIndex().getY()) * this._cellToBitmapDimensions.getX() + this._viewOrigin.getX();
-        let y = (cell.getIndex().getX() + cell.getIndex().getY()) * this._cellToBitmapDimensions.getY() + this._viewOrigin.getY();
+        let x = (cell.getIndex().getX() - cell.getIndex().getY()) * this._cellToBitmapDimensions.getX()/2 + this._viewOrigin.getX();
+        let y = (cell.getIndex().getX() + cell.getIndex().getY()) * this._cellToBitmapDimensions.getY()/2 + this._viewOrigin.getY();
 
         if(sprite !== null) {
             if(cell.getSize() === 1) {
-                y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
+                y -= (sprite.height - (this._cellToBitmapDimensions.getY())) - 1;
                 x -= 0;
             }
 
             if(cell.getSize() === 2) {
-                y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
+                y -= (sprite.height - (this._cellToBitmapDimensions.getY())) - 1;
                 x -= 16;
             }
 
             if(cell.getSize() === 3) {
-                y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2) * 3) - 1;
+                y -= (sprite.height - (this._cellToBitmapDimensions.getY()) * 3) - 1;
                 x -= 32;
             }
         }
