@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
             const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
 
-            const size                 = new Vector2D(4,4);
+            const size                 = new Vector2D(9,9);
 
             const grid = new Grid(size, null, ([x, y]) => {
                 return new Cell(new Vector2D(x, y));
@@ -75,14 +75,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
             const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
 
-            const c = grid.getCell(0,1);
-            c.setSize(3);
+            const c = grid.getCell(0,0);
+            c.setSize(1);
 
             // grid.getCell(0,0).setSize(2);
             spriteRender.setCellDimensions(cellDimensions);
             spriteRender.setViewOrigin(viewOrigin);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-21'), c);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-2'), c);
 
+
+            const c2 = grid.getCell(6,1);
+            c2.setSize(2);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-12'), c2);
+
+            const c3 = grid.getCell(6,6);
+            c3.setSize(3);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-42'), c3);
 
             // console.log(commercialsSpriteMap.get('commercial-15'));
 
