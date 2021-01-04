@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const tilesOffScreenRender = new RenderOffScreen(worldCanvas, tilesSheet);
             const tilesSpriteMap       = new SpriteMap(tilesJSONMap, tilesOffScreenRender.getCtx());
 
-            const size                 = new Vector2D(9,9);
+            const size                 = new Vector2D(4,4);
 
             const grid = new Grid(size, null, ([x, y]) => {
                 return new Cell(new Vector2D(x, y));
@@ -44,15 +44,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
             // region populate
-            while (grid.assertCells((cell) => {
-                return cell.getType() === null;
-            }) !== false) {
-                const start = grid.assertCells((cell) => {
-                    return cell.getType() === null;
-                });
-
-                populateGrid(grid, start);
-            }
+            // while (grid.assertCells((cell) => {
+            //     return cell.getType() === null;
+            // }) !== false) {
+            //     const start = grid.assertCells((cell) => {
+            //         return cell.getType() === null;
+            //     });
+            //
+            //     populateGrid(grid, start);
+            // }
             // endregion
 
             const gridRenderer = new GridRenderer(worldCanvas, new Cartesian());
@@ -75,20 +75,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
             const commercialsSpriteMap       = new SpriteMap(commercialsJSONMap, commercialsOffScreenRender.getCtx());
             const spriteRender               = new SpriteRenderer(worldCanvas, new Cartesian());
 
-            const c = grid.getCell(0,0);
-            c.setSize(1);
+            const c = grid.getCell(0,1);
+            c.setSize(3);
 
             // grid.getCell(0,0).setSize(2);
             spriteRender.setCellDimensions(cellDimensions);
             spriteRender.setViewOrigin(viewOrigin);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-5'), c);
+            spriteRender.draw(commercialsSpriteMap.get('commercial-21'), c);
 
 
             // console.log(commercialsSpriteMap.get('commercial-15'));
 
             // for(const building of buildable) {
                 // if(building.getSize() === 1) {
-                //     spriteRender.draw(commercialsSpriteMap.get('commercial-10'), building);
+                //     spriteRender.draw(commercialsSpriteMap.get('commercial-1'), building);
                 // }
                 //
                 // if(building.getSize() === 2) {

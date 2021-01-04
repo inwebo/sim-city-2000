@@ -21,30 +21,33 @@ export default class GridRenderer extends RendererAbstract {
         let x = (cell.getIndex().getX() - cell.getIndex().getY()) * this._cellToBitmapDimensions.getX() + this._viewOrigin.getX();
         let y = (cell.getIndex().getX() + cell.getIndex().getY()) * this._cellToBitmapDimensions.getY() + this._viewOrigin.getY();
 
+
+
         if(sprite !== null) {
 
-            // if(cell.getSize() > 1) {
-            //     const newSize = cell.getSize() - 1;
-            //     x -= newSize * this._cellToBitmapDimensions.getX();
-            // }
-            //
-            // if(sprite.height > this._cellToBitmapDimensions.getY() * cell.getSize()) {
-            //     // y -= (sprite.height - 32) - 1 + 8;
-            // }
+            if(cell.getSize() === 1) {
+                if(sprite.height > this._cellToBitmapDimensions.getY()*2) {
+                    y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
+                }
 
-            const gtX = (sprite.width > this._cellToBitmapDimensions.getX() * 2);
-            const gtY = (sprite.height > this._cellToBitmapDimensions.getY() * 2);
-
-            console.log(sprite,gtX, gtY);
-
-            if(gtY) {
-                let offsetY = sprite.height - this._cellToBitmapDimensions.getY() * 2;
-                console.log(offsetY);
-
-                // y -= (offsetY - 1)/2;
+                x -= 0;
             }
 
+            if(cell.getSize() === 2) {
+                if(sprite.height > this._cellToBitmapDimensions.getY()*2) {
+                    y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
+                }
 
+                x -= 16;
+            }
+
+            if(cell.getSize() === 3) {
+                if(sprite.height > this._cellToBitmapDimensions.getY()*2) {
+                    y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2) * 3) - 1;
+                }
+
+                x -= 32;
+            }
         }
 
         return new Vector2D(x, y);
