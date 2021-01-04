@@ -21,31 +21,19 @@ export default class GridRenderer extends RendererAbstract {
         let x = (cell.getIndex().getX() - cell.getIndex().getY()) * this._cellToBitmapDimensions.getX() + this._viewOrigin.getX();
         let y = (cell.getIndex().getX() + cell.getIndex().getY()) * this._cellToBitmapDimensions.getY() + this._viewOrigin.getY();
 
-
-
         if(sprite !== null) {
-
             if(cell.getSize() === 1) {
-                if(sprite.height > this._cellToBitmapDimensions.getY()*2) {
-                    y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
-                }
-
+                y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
                 x -= 0;
             }
 
             if(cell.getSize() === 2) {
-                if(sprite.height > this._cellToBitmapDimensions.getY()*2) {
-                    y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
-                }
-
+                y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2)) - 1;
                 x -= 16;
             }
 
             if(cell.getSize() === 3) {
-                if(sprite.height > this._cellToBitmapDimensions.getY()*2) {
-                    y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2) * 3) - 1;
-                }
-
+                y -= (sprite.height - (this._cellToBitmapDimensions.getY() * 2) * 3) - 1;
                 x -= 32;
             }
         }
