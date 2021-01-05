@@ -24,17 +24,17 @@ export default class GridRenderer extends RendererAbstract {
         if(sprite !== null) {
             if(cell.getSize() === 1) {
                 y -= (sprite.height - (this._cellToBitmapDimensions.getY())) - 1;
-                x -= 0;
+                x -= (cell.getSize() - 1) *  this._cellToBitmapDimensions.getX() / 2;
             }
 
             if(cell.getSize() === 2) {
                 y -= (sprite.height - (this._cellToBitmapDimensions.getY())) - 1;
-                x -= 16;
+                x -= (cell.getSize() - 1) *  this._cellToBitmapDimensions.getX() / 2;
             }
 
             if(cell.getSize() === 3) {
                 y -= (sprite.height - (this._cellToBitmapDimensions.getY()) * 3) - 1;
-                x -= 32;
+                x -= (cell.getSize() - 1) *  this._cellToBitmapDimensions.getX() / 2;
             }
         }
 
