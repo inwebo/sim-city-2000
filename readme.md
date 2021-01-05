@@ -46,4 +46,4 @@ http://pocketcity.sourceforge.net/
 https://www.vertabelo.com/blog/build-your-own-city-an-open-ended-building-game-data-model/
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
-
+https://www.npmjs.com/package/standard
