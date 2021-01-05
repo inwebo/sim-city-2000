@@ -88,33 +88,34 @@ window.addEventListener("DOMContentLoaded", (event) => {
             // spriteRender.draw(commercialsSpriteMap.get('commercial-2'), c);
             //
             //
-            const c2 = grid.getCell(0,0);
-            c2.setSize(2);
-            spriteRender.draw(commercialsSpriteMap.get('commercial-11'), c2);
+            // const c2 = grid.getCell(0,0);
+            // c2.setSize(2);
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-11'), c2);
             //
-            // const c3 = grid.getCell(6,6);
+            // const c3 = grid.getCell(1,0);
             // c3.setSize(3);
-            // spriteRender.draw(commercialsSpriteMap.get('commercial-42'), c3);
+            // spriteRender.draw(commercialsSpriteMap.get('commercial-27'), c3);
 
             // console.log(commercialsSpriteMap.get('commercial-15'));
 
             for(const building of buildable) {
-                // console.log(building);
+                console.log(building);
                 if(building.getSize() === 1) {
 
                     const spriteNumber = rand(1,8);
 
-                    // spriteRender.draw(commercialsSpriteMap.get(`commercial-${spriteNumber}`), building);
+                    spriteRender.draw(commercialsSpriteMap.get(`commercial-${spriteNumber}`), building);
                 }
 
                 if(building.getSize() === 2) {
                     console.log(building);
-                    // spriteRender.draw(commercialsSpriteMap.get('commercial-11'), building);
+                    const spriteNumber = rand(9,28);
+                    spriteRender.draw(commercialsSpriteMap.get(`commercial-${spriteNumber}`), building);
                 }
 
                 if(building.getSize() === 3) {
                     const spriteNumber = rand(19,29);
-                    // spriteRender.draw(commercialsSpriteMap.get(`commercial-${spriteNumber}`), building);
+                    spriteRender.draw(commercialsSpriteMap.get(`commercial-${spriteNumber}`), building);
                 }
             }
             // endregion
