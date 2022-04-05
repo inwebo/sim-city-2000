@@ -3,6 +3,7 @@ import {Vector2D} from "@inwebo/vector";
 import CellToCanvas from "../Helpers/CellToCanvas";
 import Chunk from "../Chunk/Chunk";
 import {Sprite} from "@inwebo/sprite.js";
+import {CoordinatesAbstract, Cell} from "@inwebo/grid.js";
 
 export default class RendererAbstract extends Renderer2D {
 
@@ -57,7 +58,7 @@ export default class RendererAbstract extends Renderer2D {
 
     /**
      * Draw imgData to canvas's coordinate offset
-     *
+     * @todo A revoir
      * @param {ImageBitmap}   imageBitmap
      * @param {Vector2D|null} offset  canvas's offset coordinate, default no offset
      */
@@ -73,18 +74,18 @@ export default class RendererAbstract extends Renderer2D {
     /**
      * Main loop cell function drawing with CanvasRenderingContext2D.drawImage()
      *
-     * @param {Chunk} chunk
+     * @param {Grid} chunk
      * @param {Sprite} sprite
      * @see https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/drawImage
      * @private
      */
-    _draw([chunk, sprite]) {
+    _draw([grid, sprite]) {
         createImageBitmap(sprite.imgData)
             .then((imageBitmap) => {
                 /**
                  * @type {Generator<Cell>}
                  */
-                const cells = this.getGenerator(chunk);
+                const cells = grid.getGenerator();
 
                 for (let cell of cells) {
                     /**

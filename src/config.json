@@ -1,0 +1,12 @@
+{
+  "BUILDINGS": {
+    "TYPES": ["commercial", "residential"],
+    "SIZE": 3
+  },
+  "GRID": {
+    "size": 9
+  },
+  "CHUNK": {
+    "size": 162
+  }
+}

@@ -1,47 +1,25 @@
-import {Vector2D} from "@inwebo/vector";
-import CellAbstract from "./CellAbstract";
+import {Cell as BaseCell} from "@inwebo/grid.js";
 
-export default class Cell extends CellAbstract {
-
-    // region scene
-    /**
-     * @param {boolean} boolean
-     */
-    setIsBuildable(boolean) {
-        this._buildable = boolean;
+export default class Cell extends BaseCell {
+    getSize() {
+        return this._size;
     }
 
-    /**
-     * @return {boolean}
-     */
-    isBuildable() {
-        return this._buildable;
+    setSize(size) {
+        this._size = size;
     }
 
-    /**
-     * @param {boolean} boolean
-     */
-    setHasRoad(boolean) {
-        this._hasRoad = boolean;
+    getType() {
+        return this._type;
     }
 
-    /**
-     * @return {boolean}
-     */
-    hasRoad() {
-        return this._hasRoad;
+    setType(type) {
+        this._type = type;
     }
-    // endregion
 
-    /**
-     * @param {Vector2D|null} index
-     * @param {boolean} buildable
-     * @param {boolean} hasRoad
-     */
-    constructor(index = null, buildable = false, hasRoad = false) {
-        super(index);
-
-        this._buildable = buildable || false;
-        this._hasRoad   = hasRoad   || false;
+    constructor(vector, type = null, size = null) {
+        super(vector);
+        this._type = type;
+        this._size = size;
     }
 }
