@@ -1,5 +1,4 @@
 import {Vector2D} from "@inwebo/vector";
-import {Grid, Cell} from "@inwebo/grid.js";
 
 export default class Chunk {
 
