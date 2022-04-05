@@ -1,6 +1,4 @@
 import {Vector2D} from "@inwebo/vector";
-import Cell from "../Grid/Cell";
-import Grid from "../Grid/Grid";
 
 export default class Chunk {
 
@@ -29,8 +27,8 @@ export default class Chunk {
 
     /**
      * @param {Vector2D} dimensions
-     * @param {Grid} grid canvas origin
-     * @param {Vector2D|null} origin
+     * @param {Grid} grid Grid
+     * @param {Vector2D|null} origin Canvas's origin
      */
     constructor(dimensions, grid, origin = null) {
         this._dimensions = dimensions;
