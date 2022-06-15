@@ -36,14 +36,11 @@ See [index.html](https://inwebo.github.io/sim-city-2000.js/), [demo.js](./docs/a
 * [Autotile](https://kidscancode.org/godot_recipes/2d/autotile_intro/)
 * [Render iso grid](http://nick-aschenbach.github.io/blog/2015/02/25/isometric-tile-engine/)
 * [Exemples](https://www.google.com/search?q=stack+overflow+matrix+to+diamond+grid&client=firefox-b-d&tbm=isch&source=iu&ictx=1&fir=YQ9BDomQ_3lX6M%252C-nWkHiftVFUs0M%252C_&vet=1&usg=AI4_-kSnASrjXCSsZVDc6jfrzM2CTgTxMg&sa=X&ved=2ahUKEwjuo7SG5vXtAhWM2hQKHe8MA8UQ9QF6BAgJEAE#imgrc=YQ9BDomQ_3lX6M)
-* 
-https://stackoverflow.com/questions/9018988/how-to-iterate-from-back-to-front-in-a-diamond-shaped-isometric-map
-https://stackoverflow.com/questions/19344623/diamond-isometric-tile-picking
-https://stackoverflow.com/questions/35885029/improving-performance-of-click-detection-on-a-staggered-column-isometric-grid/35917976#35917976
-https://stackoverflow.com/questions/46104610/isometric-tiles-drawing-and-picking-java?rq=1
-http://www.opencity.info/
-http://pocketcity.sourceforge.net/
-https://www.vertabelo.com/blog/build-your-own-city-an-open-ended-building-game-data-model/
-https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
-
-https://www.npmjs.com/package/standard
+* [Stackoverflow](https://stackoverflow.com/questions/9018988/how-to-iterate-from-back-to-front-in-a-diamond-shaped-isometric-map)
+* [Stackoverflow](https://stackoverflow.com/questions/19344623/diamond-isometric-tile-picking)
+* [Stackoverflow](https://stackoverflow.com/questions/35885029/improving-performance-of-click-detection-on-a-staggered-column-isometric-grid/35917976#35917976)
+* [Stackoverflow](https://stackoverflow.com/questions/46104610/isometric-tiles-drawing-and-picking-java?rq=1)
+* [Opencity](http://www.opencity.info/)
+* [Pocketcity](http://pocketcity.sourceforge.net/)
+* [An Open-Ended Building Game Data Model](https://www.vertabelo.com/blog/build-your-own-city-an-open-ended-building-game-data-model/)
+* [JavaScript Standard Style](https://www.npmjs.com/package/standard)
