@@ -1,5 +1,5 @@
 {
-  "name": "@inwebo/sim-city-200",
+  "name": "@inwebo/sim-city-2000",
   "version": "0.0.1",
   "description": "Sim city 2000 generator",
   "main": "/src/index.js",
